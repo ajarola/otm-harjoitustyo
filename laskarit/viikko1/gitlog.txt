@@ -1,0 +1,124 @@
+commit e5f5e94655bf24f9cb726d37acb995fbcc057d46
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 15:08:06 2018 +0200
+
+    file22.txt
+
+ tiedostoja/file22.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 334ef424fdefbcd656910917073ae0088c90622e
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:42:06 2018 +0200
+
+    file22.txt
+
+ tiedostoja/file2.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f67c2215030eb7c14375bb11fd5e0477c2378d8c
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:41:09 2018 +0200
+
+    asd
+
+ tiedostoja/file1.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 647629a9811ee6fbb6105e61f122e0b95f0ee475
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:37:09 2018 +0200
+
+    tiedostoja
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d6ddeccd876156476fbbbb768e20faaf8e849ad0
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:31:49 2018 +0200
+
+    eka.txt
+
+ eka.txt      |  7 +++++++
+ kolmas.txt   |  8 ++++++++
+ tiedosto.txt | 18 ------------------
+ 3 files changed, 15 insertions(+), 18 deletions(-)
+
+commit 2988fa41e774094c051febc8cd614b1747d136f0
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:30:13 2018 +0200
+
+    eka.txt
+
+ eka.txt    | 18 ++++++++++++++++++
+ toinen.txt |  1 -
+ 2 files changed, 18 insertions(+), 1 deletion(-)
+
+commit 1b6e583a49d86693c6849cfd6cb3779ba1c35ba0
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:27:39 2018 +0200
+
+    tiedosto.txt
+
+ tiedosto.txt | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+commit d49db4295e4f48d34f0f02fe9f83ebab8b448f00
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:26:54 2018 +0200
+
+    tiedosto.txt
+
+ tiedosto.txt | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+commit 5df530f9c23c386d148dd1215a1cfd950b9b7a58
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:23:01 2018 +0200
+
+    stuff
+
+ stuff/jokintiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit fd695aa57bf1fe5e8f73b03dc28c8cc3e9cdaa49
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:20:56 2018 +0200
+
+    .
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 4fe12dde987b1afbb79387c7c0f5b7288a210ba8
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:20:05 2018 +0200
+
+    kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit dfee743197eaef209e984c158439a5ed17cc176b
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:18:15 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 3 +++
+ toinen.txt   | 0
+ 2 files changed, 3 insertions(+)
+
+commit be3cea810bc706d28d65dc20b6c1635dcb0abaab
+Author: Aleksi <aleksi.arola@helsinki.fi>
+Date:   Fri Mar 16 14:15:34 2018 +0200
+
+    tiedosto.txt
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
