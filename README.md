@@ -1,8 +1,9 @@
-**_Otsikko_**
+**_OTM-harjoitustyö_**
 
-*jotain tekstiä*
+**tehtävät**
 
-_lisää tekstiä_
-*asd
-*lol
-**vielä jotain lisää**
+**viikko1**
+
+[komentorivi.txt](https://github.com/ajarola/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+
+[gitlog.txt](https://github.com/ajarola/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
