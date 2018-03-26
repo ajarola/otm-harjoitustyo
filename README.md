@@ -16,4 +16,4 @@
 
 ###### **viikko2**
 
-[Viikon 2 laskarit] (https://github.com/ajarola/otm-harjoitustyo/tree/master/laskarit/viikko2)
+[Viikon 2 laskarit](https://github.com/ajarola/otm-harjoitustyo/tree/master/laskarit/viikko2)
