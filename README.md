@@ -4,7 +4,7 @@
 
 [Vaatimusmäärittely](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
-[Tuntikirjanpito](https://github.com/ajarola/otm-harjoitustyo/blob/master/tuntikirjaukset.md)
+[Tuntikirjanpito](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
 
 ## **tehtävät**
