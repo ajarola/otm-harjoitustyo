@@ -12,7 +12,7 @@ Lähtökohtaisesti erilaisia käyttäjämäärittelyitä ei ainakaan alkuun tarv
 Perusversion on tarkoitus tarjota pelaajalle jonkin tasoinen vastustaja, jolla on satunnaisesti sijoitellut laivat pelikentällä.
 Pelaaja voi itse päättää omien laivojensa sijainnin, mutta tällä ei välttämättä ole mitään merkitystä lopputuloksen kannalta. Peliä
 pelataan 5x5 ruudukolla, jossa on kolme kolmen ruudun pituista laivaa. Perusversiossa peli tapahtuu komentorivin avulla niin, että ensin
-määritetään laivojen sijainti ja sen jälkeen aloitetaan peli. Peli loppuu kun toisenn osapuolen laivat on tuhottu.
+määritetään laivojen sijainti ja sen jälkeen aloitetaan peli. Peli etenee normaalien laivanupotuksen sääntöjen mukaan.
 
 
 ## Jatkokehitysideoita
