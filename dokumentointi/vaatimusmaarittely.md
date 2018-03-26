@@ -3,11 +3,6 @@
 Sovelluksen tarkoitus on toteuttaa tavallisesti paperilla pelattava laivanupotuspeli tietokoneella pelattavassa muodossa.
 Sovellus tarjoaa siis käyttäjälleen ajanvietettä. Peliä on toisen ihmisen sijaan tarkoitus pelata yksinkertaista tekoälyä vastaan.
 
-
-## Käyttäjät
-Lähtökohtaisesti erilaisia käyttäjämäärittelyitä ei ainakaan alkuun tarvita, sillä kyse on vain yksinkertaisesta pelistä.
-
-
 ## Perusversion toiminnallisuus
 Perusversion on tarkoitus tarjota pelaajalle jonkin tasoinen vastustaja, jolla on satunnaisesti sijoitellut laivat pelikentällä.
 Pelaaja voi itse päättää omien laivojensa sijainnin, mutta tällä ei välttämättä ole mitään merkitystä lopputuloksen kannalta. Peliä
