@@ -11,10 +11,10 @@ määritetään laivojen sijainti ja sen jälkeen aloitetaan peli. Peli etenee n
 
 ### Toiminnallisuus listana
 
--mahdollisuus määrittää omien laivojen sijainti
--tekoäly vastustajana
--toimii tavallisten laivanupotuksen sääntöjen mukaan
--peli tapahtuu komentorivillä
+- mahdollisuus määrittää omien laivojen sijainti
+- tekoäly vastustajana
+- toimii tavallisten laivanupotuksen sääntöjen mukaan
+- peli tapahtuu komentorivillä
 
 ## Jatkokehitysideoita
 Peliä voi jatkokehittää lukuisilla eri tavoilla. Tekoälylle voidaan lisätä eri vaikeustasoja ja laivojen määrää sekä ruudukon kokoa voidaan
@@ -25,10 +25,10 @@ säännöistä poikkeavia toiminnallisuuksia voidaan lisätä peliin.
 
 ### Jatkokehitysmahdollisuudet listana
 
--säädettävä vaikeustaso
--muokattava laivojen määrä/koko
--muokattava pelikentän koko
--tulosten tallentaminen
--pelaajien yksilöinti
--graafinen käyttöliittymä
--mahdollisuus muokata pelin sääntöjä
+- säädettävä vaikeustaso
+- muokattava laivojen määrä/koko
+- muokattava pelikentän koko
+- tulosten tallentaminen
+- pelaajien yksilöinti
+- graafinen käyttöliittymä
+- mahdollisuus muokata pelin sääntöjä
