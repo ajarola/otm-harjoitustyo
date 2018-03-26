@@ -13,3 +13,7 @@
 
 [gitlog.txt](https://github.com/ajarola/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+
+###### **viikko2**
+
+[Viikon 2 laskarit] (https://github.com/ajarola/otm-harjoitustyo/tree/master/laskarit/viikko2)
