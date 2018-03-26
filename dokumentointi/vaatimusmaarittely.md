@@ -1,6 +1,6 @@
 # Vaatimusmäärittely
 ## Sovelluksen tarkoitus
-Sovelluksen tarkoitus on toteuttaa tavallisesti paperilla pelattu laivanupotuspeli tietokoneella pelattavassa muodossa.
+Sovelluksen tarkoitus on toteuttaa tavallisesti paperilla pelattava laivanupotuspeli tietokoneella pelattavassa muodossa.
 Sovellus tarjoaa siis käyttäjälleen ajanvietettä. Peliä on toisen ihmisen sijaan tarkoitus pelata yksinkertaista tekoälyä vastaan.
 
 
