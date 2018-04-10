@@ -15,45 +15,43 @@ public class Ship {
     public boolean sunk;
     public int lives;
     public int[][] position;
-    
+
     public Ship(int lenght, int[][] position) {
 
         this.lenght = lenght;
         this.sunk = false;
-        this.lives = lenght;  
+        this.lives = lenght;
         this.position = position;
-        
+
     }
 
-    public int[][] getPosition(){
+    public int[][] getPosition() {
         return this.position;
     }
-    
-    public int getLenght(){
+
+    public int getLenght() {
         return this.lenght;
     }
-    
-    
-    public int getLives(){
+
+    public int getLives() {
         return this.lives;
     }
-    
-    public boolean isSunk(){
+
+    public boolean isSunk() {
         return this.sunk;
     }
-    
+
     public void hit() {
         if (this.lives > 0) {
             this.lives--;
         }
-        System.out.println("A ship has been hit");
         sink();
     }
 
     public void sink() {
         if (this.lives == 0) {
             this.sunk = true;
-        
+
             System.out.println("A ship has sunk");
         }
     }
