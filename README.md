@@ -1,4 +1,4 @@
-# **_OTM-harjoitustyö_**
+# **_Laivanupotus_**
 
 ## Dokumentaatio
 
