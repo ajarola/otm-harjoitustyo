@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class LaivanupotusTest {
     
-    Board board;
+    Board gameboard;
     
     public LaivanupotusTest() {
     
@@ -38,7 +38,7 @@ public class LaivanupotusTest {
     @Before
     public void setUp() {
     
-    this.board = new Board(5,3);
+    this.gameboard = new Board(5);
     
     
     }
@@ -51,7 +51,7 @@ public class LaivanupotusTest {
     
     @Test
     public void testShipCount(){
-        assertEquals(3, board.shiplist.size());
+        assertEquals(5, gameboard.board.length);
         
     }
 }
