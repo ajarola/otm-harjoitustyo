@@ -15,8 +15,11 @@ public class Board {
 
     public ArrayList<Ship> shiplist;
     public int[][] board;
+    public Player owner;
 
-    public Board(int size) {
+    public Board(int size, Player owner) {
+
+        this.owner = owner;
 
         this.board = new int[size][size];
         for (int i = 0; i < size; i++) {
@@ -94,9 +97,9 @@ public class Board {
 
     }
 
-    public void randomBoard(int shipnumber) {
+    public void randomBoard() {
 
-        while (this.shiplist.size() < shipnumber) {
+        while (this.shiplist.size() < 5) {
 
             int[][] position = new int[this.board.length][this.board.length];
 
@@ -110,52 +113,36 @@ public class Board {
             //toisiinsa nähden, paitsi, että eivät saa olla päällekkäin.
             Random shiplocator = new Random();
 
-            int checkpos = 0;
-            int bowrow = shiplocator.nextInt(5);
-            int bowcolumn = shiplocator.nextInt(5);
-            int direction = shiplocator.nextInt(4);
+            int[] shiplengths = {5, 4, 3, 3, 2};
 
-            if (direction == 0 && bowrow + 2 < 5 && this.board[bowrow][bowcolumn] == -1 && this.board[bowrow + 1][bowcolumn] == -1 && this.board[bowrow + 2][bowcolumn] == -1) {
-                checkpos++;
-                position[bowrow][bowcolumn] = 1;
-                position[bowrow + 1][bowcolumn] = 1;
-                position[bowrow + 2][bowcolumn] = 1;
-                this.board[bowrow][bowcolumn] = 1;
-                this.board[bowrow + 1][bowcolumn] = 1;
-                this.board[bowrow + 2][bowcolumn] = 1;
-            } else if (direction == 1 && bowrow - 2 > 0 && this.board[bowrow][bowcolumn] == -1 && this.board[bowrow - 1][bowcolumn] == -1 && this.board[bowrow - 2][bowcolumn] == -1) {
-                checkpos++;
-                position[bowrow][bowcolumn] = 1;
-                position[bowrow - 1][bowcolumn] = 1;
-                position[bowrow - 2][bowcolumn] = 1;
-                this.board[bowrow][bowcolumn] = 1;
-                this.board[bowrow - 1][bowcolumn] = 1;
-                this.board[bowrow - 2][bowcolumn] = 1;
-            } else if (direction == 2 && bowcolumn + 2 < 5 && this.board[bowrow][bowcolumn] == -1 && this.board[bowrow][bowcolumn + 1] == -1 && this.board[bowrow][bowcolumn + 2] == -1) {
-                checkpos++;
-                position[bowrow][bowcolumn] = 1;
-                position[bowrow][bowcolumn + 1] = 1;
-                position[bowrow][bowcolumn + 2] = 1;
-                this.board[bowrow][bowcolumn] = 1;
-                this.board[bowrow][bowcolumn + 1] = 1;
-                this.board[bowrow][bowcolumn + 2] = 1;
-            } else if (direction == 3 && bowcolumn - 2 > 0 && this.board[bowrow][bowcolumn] == -1 && this.board[bowrow][bowcolumn - 1] == -1 && this.board[bowrow][bowcolumn - 2] == -1) {
-                checkpos++;
-                position[bowrow][bowcolumn] = 1;
-                position[bowrow][bowcolumn - 1] = 1;
-                position[bowrow][bowcolumn - 2] = 1;
-                this.board[bowrow][bowcolumn] = 1;
-                this.board[bowrow][bowcolumn - 1] = 1;
-                this.board[bowrow][bowcolumn - 2] = 1;
-            }
+            int k = 0;
+            
+            while(k < shiplengths.length) {
 
-            if (checkpos == 1) {
-
-                this.shiplist.add(new Ship(3, position));
+                int bowrow = shiplocator.nextInt(10);
+                int bowcolumn = shiplocator.nextInt(10);
+                int direction = shiplocator.nextInt(4);
+                
+                if (direction == 0){
+                if (addShipToBoard(bowrow,bowcolumn,bowrow+shiplengths[k]-1,bowcolumn) == true){
+                    k++;
+                }
+                } else if (direction == 1){
+                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn+shiplengths[k]-1) == true){
+                    k++;
+                }
+                } else if (direction == 2){
+                if (addShipToBoard(bowrow,bowcolumn,bowrow-shiplengths[k]+1,bowcolumn) == true){
+                    k++;
+                }
+                } else {
+                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn-shiplengths[k]+1) == true)
+                    k++;
+                }
+ 
             }
 
         }
-
     }
 
     public boolean addShipToBoard(int row1, int column1, int row2, int column2) {
@@ -165,6 +152,20 @@ public class Board {
             return false;
         }
 
+        // vaihdetaan päittäin, jos aloituspositio loppupositiota suurempi.
+        if (row2 < row1){
+            int helper = row1;
+            row1 = row2;
+            row2 = helper;        
+        }
+        
+        if (column2 < column1){
+            int helper = column1;
+            column1 = column2;
+            column2 = helper;        
+        }
+        
+        
         int[][] position = new int[this.board.length][this.board.length];
 
         for (int i = 0; i < this.board.length; i++) {
@@ -173,46 +174,61 @@ public class Board {
             }
         }
 
-        int midrow;
-        int midcolumn;
+        int lenght;
 
         if (column1 == column2) {
 
-            midcolumn = column1;
+            lenght = row2 - row1 + 1;
+            int midrow = row1;
 
-            if (row1 < row2) {
-                midrow = row1 + 1;
-            } else {
-                midrow = row2 + 1;
+            while (midrow <= row2) {
+
+                if (this.board[midrow][column1] != -1) {
+                    return false;
+                }
+
+                position[midrow][column1] = 1;
+                
+                midrow++;
             }
 
         } else if (row1 == row2) {
 
-            midrow = row1;
+            lenght = column2 - column1 + 1;
+            int midcolumn = column1;
 
-            if (column1 < column2) {
-                midcolumn = column1 + 1;
-            } else {
-                midcolumn = column2 + 1;
+            while (midcolumn <= column2) {
+
+                if (this.board[row1][midcolumn] != -1) {
+                    return false;
+                }
+
+                position[row1][midcolumn] = 1;
+                
+                midcolumn++;
             }
 
         } else {
             return false;
         }
 
-        //tarkistetaan, että sijainnissa ei ole jo laivaa
-        if (this.board[row1][column1] == 1 || this.board[midrow][midcolumn] == 1 || this.board[row2][column2] == 1) {
-            return false;
+        
+        for (int i = 0; i < this.board.length; i++) {
+            for (int j = 0; j < this.board.length; j++) {
+                if (position[i][j] == 1){
+                    this.board[i][j] = 1;
+                }
+            }
         }
+        
+        
+        
+        
+        Ship ship = new Ship(lenght, position);
 
-        position[row1][column1] = 1;
-        position[midrow][midcolumn] = 1;
-        position[row2][column2] = 1;
-        this.board[row1][column1] = 1;
-        this.board[midrow][midcolumn] = 1;
-        this.board[row2][column2] = 1;
+        this.shiplist.add(ship);
 
-        this.shiplist.add(new Ship(3, position));
+        this.owner.addLives(ship.lives);
 
         return true;
 

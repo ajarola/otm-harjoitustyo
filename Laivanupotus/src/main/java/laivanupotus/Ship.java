@@ -11,6 +11,7 @@ package laivanupotus;
  */
 public class Ship {
 
+    public String name;
     public int lenght;
     public boolean sunk;
     public int lives;
@@ -42,12 +43,20 @@ public class Ship {
     }
 
     public void hit() {
+        System.out.println(this.name + " was hit");
         if (this.lives > 0) {
             this.lives--;
         }
         sink();
     }
 
+    public String getName() {
+        return this.name;
+    }
+    
+    
+    
+    
     public void sink() {
         if (this.lives == 0) {
             this.sunk = true;

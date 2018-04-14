@@ -11,4 +11,14 @@ package laivanupotus;
  */
 public class Statistics {
     
+    
+    //Tänne tulee jossain kohtaa tulosten tallentamiseen liittyviä juttuja
+    
+    
+    
+    
+    
+    
+    
+    
 }

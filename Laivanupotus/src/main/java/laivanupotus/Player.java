@@ -17,17 +17,23 @@ public class Player {
     public Player(String name){
         
         this.name = name;
-        this.lives = 9;
     }
     
     public void hit(){
-        System.out.println(this.name +  "'s ship was hit.");
         this.lives--;
     }
     
     public int getLives(){
         return this.lives;
     }
+    
+    public void addLives(int amount){
+        
+        if (amount > 0){
+        this.lives = this.lives + amount;
+        }
+    }
+    
     
     public String getName(){
         return this.name;
