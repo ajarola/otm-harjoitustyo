@@ -5,6 +5,8 @@
  */
 
 import laivanupotus.Board;
+import laivanupotus.Player;
+import laivanupotus.Ship;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,9 +20,9 @@ import static org.junit.Assert.*;
  * @author Aleksi
  */
 public class LaivanupotusTest {
-    
+    Player player;
     Board gameboard;
-    
+    Ship ship;
     public LaivanupotusTest() {
     
     
@@ -37,11 +39,16 @@ public class LaivanupotusTest {
     
     @Before
     public void setUp() {
+    this.player = new Player("Seppo");
+    this.gameboard = new Board(10,this.player);
     
-    this.gameboard = new Board(5);
+    this.gameboard.addShipToBoard(0, 0, 0, 4, "Destroyer");
+    
     
     
     }
+            
+   
     
     @After
     public void tearDown() {
@@ -50,10 +57,95 @@ public class LaivanupotusTest {
    
     
     @Test
-    public void testShipCount(){
-        assertEquals(5, gameboard.board.length);
+    public void testBoardSize(){
+        assertEquals(10, gameboard.board.length);
         
     }
+    
+    @Test
+    public void testShootingOob(){
+        assertEquals(false, gameboard.shoot(200,200));
+        
+    }
+    
+    @Test
+    public void testShootHittingShip(){
+        assertEquals(true, gameboard.shoot(0, 0));
+        
+    }
+    
+    @Test
+    public void testShootNotCountingHitTwice(){
+        gameboard.shoot(0, 0);
+        assertEquals(false, gameboard.shoot(0,0));
+        
+    }
+    
+    @Test
+    public void testShiplistSize(){
+        assertEquals(1, gameboard.shiplist.size());
+        
+    }
+    
+    @Test
+    public void testRandomBoardShipCount(){
+        gameboard.randomBoard();
+        assertEquals(5, gameboard.shiplist.size());
+        
+    }
+    
+    @Test
+    public void testPlayerName(){
+        assertEquals("Seppo", this.player.getName());
+        
+    }
+    
+    @Test
+    public void testPlayerHasLost(){
+        assertEquals(false, this.player.hasLost());
+        
+    }
+    
+    @Test
+    public void testPlayerLives(){
+        assertEquals(5, this.player.getLives());
+        
+    }
+    
+    @Test
+    public void testPlayerAddLives(){
+        this.player.addLives(5);
+        assertEquals(10, this.player.getLives());
+        
+    }
+    
+    @Test
+    public void testPlayerNegativeAddLives(){
+        this.player.addLives(-5);
+        assertEquals(5, this.player.getLives());
+        
+    }
+    
+    @Test
+    public void testPlayerHit(){
+        this.player.hit();
+        assertEquals(4, this.player.getLives());
+        
+    }
+    
+    @Test
+    public void testPlayerLosing(){
+        this.player.hit();
+        this.player.hit();
+        this.player.hit();
+        this.player.hit();
+        this.player.hit();
+        assertEquals(true, this.player.hasLost());
+        
+    }
+        
+    
+    
 }
 
 

@@ -28,7 +28,7 @@ public class Board {
             }
         }
 
-        this.shiplist = new ArrayList<>();
+        this.shiplist = new ArrayList();
 
     }
 
