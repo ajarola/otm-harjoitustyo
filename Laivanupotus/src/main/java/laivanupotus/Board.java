@@ -35,7 +35,7 @@ public class Board {
     public boolean shoot(int row, int column) {
 
         if (row >= this.board.length || column >= this.board.length) {
-            System.out.println("Shot out of bounds.");
+            System.out.println("Invalid input (not an integer) or shot out of bounds.");
             return false;
         }
 
@@ -60,8 +60,8 @@ public class Board {
     public void showOwnBoard() {
         int help = 0;
         System.out.println("\n");
-        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");            
-        
+        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");
+
         for (int i = 0; i < board.length; i++) {
             System.out.print(help + "    ");
             help++;
@@ -85,8 +85,8 @@ public class Board {
 
         int help = 0;
         System.out.println("\n");
-        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");    
-        
+        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");
+
         for (int i = 0; i < board.length; i++) {
             System.out.print(help + "    ");
             help++;
@@ -106,50 +106,40 @@ public class Board {
 
     public void randomBoard() {
 
-        while (this.shiplist.size() < 5) {
+    //Laivojen sijoittaminen satunnaisesti pelikentälle. Ei tässä kohtaa rajoituksia laivojen sijainnin suhteen
+    //toisiinsa nähden, paitsi, että eivät saa olla päällekkäin.
+        Random shiplocator = new Random();
 
-            int[][] position = new int[this.board.length][this.board.length];
+        int[] shiplengths = {5, 4, 3, 3, 2};
+        String[] shipnames = {"Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"};
+        int k = 0;
 
-            for (int i = 0; i < this.board.length; i++) {
-                for (int j = 0; j < this.board.length; j++) {
-                    position[i][j] = -1;
-                }
-            }
+        while (k < shiplengths.length) {
 
-            //Laivojen sijoittaminen satunnaisesti pelikentälle. Ei tässä kohtaa rajoituksia laivojen sijainnin suhteen
-            //toisiinsa nähden, paitsi, että eivät saa olla päällekkäin.
-            Random shiplocator = new Random();
+            int bowrow = shiplocator.nextInt(10);
+            int bowcolumn = shiplocator.nextInt(10);
+            int direction = shiplocator.nextInt(4);
 
-            int[] shiplengths = {5, 4, 3, 3, 2};
-            String[] shipnames = {"Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"};
-            int k = 0;
-            
-            while(k < shiplengths.length) {
-
-                int bowrow = shiplocator.nextInt(10);
-                int bowcolumn = shiplocator.nextInt(10);
-                int direction = shiplocator.nextInt(4);
-                
-                if (direction == 0){
-                if (addShipToBoard(bowrow,bowcolumn,bowrow+shiplengths[k]-1,bowcolumn, shipnames[k]) == true){
+            if (direction == 0) {
+                if (addShipToBoard(bowrow, bowcolumn, bowrow + shiplengths[k] - 1, bowcolumn, shipnames[k]) == true) {
                     k++;
                 }
-                } else if (direction == 1){
-                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn+shiplengths[k]-1, shipnames[k]) == true){
+            } else if (direction == 1) {
+                if (addShipToBoard(bowrow, bowcolumn, bowrow, bowcolumn + shiplengths[k] - 1, shipnames[k]) == true) {
                     k++;
                 }
-                } else if (direction == 2){
-                if (addShipToBoard(bowrow,bowcolumn,bowrow-shiplengths[k]+1,bowcolumn, shipnames[k]) == true){
+            } else if (direction == 2) {
+                if (addShipToBoard(bowrow, bowcolumn, bowrow - shiplengths[k] + 1, bowcolumn, shipnames[k]) == true) {
                     k++;
                 }
-                } else {
-                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn-shiplengths[k]+1, shipnames[k]) == true)
+            } else {
+                if (addShipToBoard(bowrow, bowcolumn, bowrow, bowcolumn - shiplengths[k] + 1, shipnames[k]) == true) {
                     k++;
                 }
- 
             }
 
         }
+
     }
 
     public boolean addShipToBoard(int row1, int column1, int row2, int column2, String name) {
@@ -160,19 +150,18 @@ public class Board {
         }
 
         // vaihdetaan päittäin, jos aloituspositio loppupositiota suurempi.
-        if (row2 < row1){
+        if (row2 < row1) {
             int helper = row1;
             row1 = row2;
-            row2 = helper;        
+            row2 = helper;
         }
-        
-        if (column2 < column1){
+
+        if (column2 < column1) {
             int helper = column1;
             column1 = column2;
-            column2 = helper;        
+            column2 = helper;
         }
-        
-        
+
         int[][] position = new int[this.board.length][this.board.length];
 
         for (int i = 0; i < this.board.length; i++) {
@@ -195,7 +184,7 @@ public class Board {
                 }
 
                 position[midrow][column1] = 1;
-                
+
                 midrow++;
             }
 
@@ -211,7 +200,7 @@ public class Board {
                 }
 
                 position[row1][midcolumn] = 1;
-                
+
                 midcolumn++;
             }
 
@@ -219,22 +208,16 @@ public class Board {
             return false;
         }
 
-        
         for (int i = 0; i < this.board.length; i++) {
             for (int j = 0; j < this.board.length; j++) {
-                if (position[i][j] == 1){
+                if (position[i][j] == 1) {
                     this.board[i][j] = 1;
                 }
             }
         }
-        
-        
-        
-        
+
         Ship ship = new Ship(lenght, position, name);
 
-        
-        
         this.shiplist.add(ship);
 
         this.owner.addLives(ship.lives);

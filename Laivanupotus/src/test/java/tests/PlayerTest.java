@@ -1,3 +1,5 @@
+package tests;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,11 +21,11 @@ import static org.junit.Assert.*;
  *
  * @author Aleksi
  */
-public class LaivanupotusTest {
+public class PlayerTest {
     Player player;
     Board gameboard;
     Ship ship;
-    public LaivanupotusTest() {
+    public PlayerTest() {
     
     
     }
@@ -54,45 +56,6 @@ public class LaivanupotusTest {
     public void tearDown() {
     }
 
-   
-    
-    @Test
-    public void testBoardSize(){
-        assertEquals(10, gameboard.board.length);
-        
-    }
-    
-    @Test
-    public void testShootingOob(){
-        assertEquals(false, gameboard.shoot(200,200));
-        
-    }
-    
-    @Test
-    public void testShootHittingShip(){
-        assertEquals(true, gameboard.shoot(0, 0));
-        
-    }
-    
-    @Test
-    public void testShootNotCountingHitTwice(){
-        gameboard.shoot(0, 0);
-        assertEquals(false, gameboard.shoot(0,0));
-        
-    }
-    
-    @Test
-    public void testShiplistSize(){
-        assertEquals(1, gameboard.shiplist.size());
-        
-    }
-    
-    @Test
-    public void testRandomBoardShipCount(){
-        gameboard.randomBoard();
-        assertEquals(5, gameboard.shiplist.size());
-        
-    }
     
     @Test
     public void testPlayerName(){
@@ -143,9 +106,7 @@ public class LaivanupotusTest {
         assertEquals(true, this.player.hasLost());
         
     }
-        
-    
-    
+       
 }
 
 

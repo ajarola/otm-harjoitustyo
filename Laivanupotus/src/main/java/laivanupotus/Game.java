@@ -52,8 +52,13 @@ public class Game {
 
         System.out.println("Type 1 to automatically place your ships or type 2 to place them manually:");
 
-        int choice = Integer.parseInt(this.scanner.nextLine());
-
+        int choice = 1;
+        
+        try {
+            choice = Integer.parseInt(this.scanner.nextLine());
+        } catch(NumberFormatException e) { 
+            System.out.println("Invalid user input. Your ships have been automatically placed, because you probably couldn't place them manually anyways.");
+        }
         if (choice == 1) {
             this.playerboard.randomBoard();
         } else {
@@ -66,20 +71,29 @@ public class Game {
 
                 System.out.println("To build a new ship type starting row and column for a ship, then type end row and column for it:");
 
-                System.out.println("starting row:");
-                int row1 = Integer.parseInt(this.scanner.nextLine());
-                System.out.println("starting column:");
-                int column1 = Integer.parseInt(this.scanner.nextLine());
-                System.out.println("ending row:");
-                int row2 = Integer.parseInt(this.scanner.nextLine());
-                System.out.println("ending column:");
-                int column2 = Integer.parseInt(this.scanner.nextLine());
+                int row1 = 999;
+                int column1 = 999;
+                int row2 = 999;
+                int column2 = 999;
+
+                try {
+                    System.out.println("starting row:");
+                    row1 = Integer.parseInt(this.scanner.nextLine());
+                    System.out.println("starting column:");
+                    column1 = Integer.parseInt(this.scanner.nextLine());
+                    System.out.println("ending row:");
+                    row2 = Integer.parseInt(this.scanner.nextLine());
+                    System.out.println("ending column:");
+                    column2 = Integer.parseInt(this.scanner.nextLine());
+                } catch (NumberFormatException e) {
+
+                }
 
                 if (this.playerboard.addShipToBoard(row1, column1, row2, column2, shipnames[ships]) == true) {
                     ships++;
                     System.out.println("Ship succesfully added to your board.");
                 } else {
-                    System.out.println("Invalid position for the ship.");
+                    System.out.println("Invalid input (not integer) or position for the ship.");
                 }
                 this.playerboard.showOwnBoard();
             }
@@ -91,15 +105,21 @@ public class Game {
 
         while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
 
+            int row = 999;
+            int column = 999;
+
             this.opponentboard.showOpponentBoard();
             System.out.print("---------------------------------------------------");
             this.playerboard.showOwnBoard();
 
-            System.out.println("type row to shoot");
-            int row = Integer.parseInt(this.scanner.nextLine());
+            try {
+                System.out.println("type row to shoot");
+                row = Integer.parseInt(this.scanner.nextLine());
+                System.out.println("type column to shoot");
+                column = Integer.parseInt(this.scanner.nextLine());
+            } catch (NumberFormatException e) {
 
-            System.out.println("type column to shoot");
-            int column = Integer.parseInt(this.scanner.nextLine());
+            }
 
             if (this.opponentboard.shoot(row, column) == true) {
                 this.opponent.hit();
