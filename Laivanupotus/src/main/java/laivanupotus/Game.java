@@ -23,7 +23,7 @@ public class Game {
     public Game() {
 
         this.scanner = new Scanner(System.in);
-        
+
         this.random = new Random();
 
         System.out.println("Use matrix rows and columns starting from 0 to target your shots.");
@@ -41,22 +41,17 @@ public class Game {
         System.out.println("Game ends when other player's ships have been completely wiped out.");
         System.out.println("The upper board belongs to your opponent and lower one to you.");
         System.out.println("Opponent automatically takes a shot once your turn has ended unless you have won already.");
-        
 
         System.out.println("To begin playing type your name:");
 
         this.player = new Player(scanner.nextLine());
         this.opponent = new Player("Opponent");
-        
-        
-        this.opponentboard = new Board(10,this.opponent);
-        this.playerboard = new Board(10,this.player);
-        
-        
+
+        this.opponentboard = new Board(10, this.opponent);
+        this.playerboard = new Board(10, this.player);
+
         System.out.println("Type 1 to automatically place your ships or type 2 to place them manually:");
-        
-        
-        
+
         int choice = Integer.parseInt(this.scanner.nextLine());
 
         if (choice == 1) {
@@ -65,14 +60,12 @@ public class Game {
 
             System.out.println("The number of ships is 5. It's advisable to use the standard lengths 5, 4, 2 x 3 and 2 for the ships.");
 
+            String[] shipnames = {"Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"};
             int ships = 0;
             while (ships < 5) {
-                
-                
+
                 System.out.println("To build a new ship type starting row and column for a ship, then type end row and column for it:");
-                
-                
-                
+
                 System.out.println("starting row:");
                 int row1 = Integer.parseInt(this.scanner.nextLine());
                 System.out.println("starting column:");
@@ -82,26 +75,24 @@ public class Game {
                 System.out.println("ending column:");
                 int column2 = Integer.parseInt(this.scanner.nextLine());
 
-                if (this.playerboard.addShipToBoard(row1, column1, row2, column2) == true) {
+                if (this.playerboard.addShipToBoard(row1, column1, row2, column2, shipnames[ships]) == true) {
                     ships++;
                     System.out.println("Ship succesfully added to your board.");
-                }else{
+                } else {
                     System.out.println("Invalid position for the ship.");
                 }
                 this.playerboard.showOwnBoard();
             }
-        
-        System.out.println("Your board is complete.");
+
+            System.out.println("Your board is complete.");
         }
 
         this.opponentboard.randomBoard();
 
-        
-
         while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
 
             this.opponentboard.showOpponentBoard();
-            System.out.print("------------------------------------------");
+            System.out.print("---------------------------------------------------");
             this.playerboard.showOwnBoard();
 
             System.out.println("type row to shoot");

@@ -10,48 +10,46 @@ package laivanupotus;
  * @author Aleksi
  */
 public class Player {
-    
+
     public String name;
     public int lives;
-    
-    public Player(String name){
-        
+
+    public Player(String name) {
+
         this.name = name;
     }
-    
-    public void hit(){
+
+    public void hit() {
         this.lives--;
     }
-    
-    public int getLives(){
+
+    public int getLives() {
         return this.lives;
     }
-    
-    public void addLives(int amount){
-        
-        if (amount > 0){
-        this.lives = this.lives + amount;
+
+    public void addLives(int amount) {
+
+        if (amount > 0) {
+            this.lives = this.lives + amount;
         }
     }
-    
-    
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
-    
-    public boolean hasLost(){
-        if (this.lives > 0){
+
+    public boolean hasLost() {
+        if (this.lives > 0) {
             return false;
-        }else 
+        } else {
             return true;
+        }
     }
-    
-    
-    public void lose(){
-        if (this.lives <= 0){
+
+    public void lose() {
+        if (this.lives <= 0) {
             System.out.println(this.name + " has lost the game");
         }
     }
-    
-    
+
 }

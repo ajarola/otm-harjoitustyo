@@ -58,10 +58,13 @@ public class Board {
     }
 
     public void showOwnBoard() {
-
+        int help = 0;
         System.out.println("\n");
-
+        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");            
+        
         for (int i = 0; i < board.length; i++) {
+            System.out.print(help + "    ");
+            help++;
             for (int j = 0; j < board.length; j++) {
                 if (this.board[i][j] == -1) {
                     System.out.print("~" + "    ");
@@ -80,9 +83,13 @@ public class Board {
 
     public void showOpponentBoard() {
 
+        int help = 0;
         System.out.println("\n");
-
+        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");    
+        
         for (int i = 0; i < board.length; i++) {
+            System.out.print(help + "    ");
+            help++;
             for (int j = 0; j < board.length; j++) {
                 if (this.board[i][j] == -1 || this.board[i][j] == 1) {
                     System.out.print("~" + "    ");
@@ -114,7 +121,7 @@ public class Board {
             Random shiplocator = new Random();
 
             int[] shiplengths = {5, 4, 3, 3, 2};
-
+            String[] shipnames = {"Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"};
             int k = 0;
             
             while(k < shiplengths.length) {
@@ -124,19 +131,19 @@ public class Board {
                 int direction = shiplocator.nextInt(4);
                 
                 if (direction == 0){
-                if (addShipToBoard(bowrow,bowcolumn,bowrow+shiplengths[k]-1,bowcolumn) == true){
+                if (addShipToBoard(bowrow,bowcolumn,bowrow+shiplengths[k]-1,bowcolumn, shipnames[k]) == true){
                     k++;
                 }
                 } else if (direction == 1){
-                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn+shiplengths[k]-1) == true){
+                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn+shiplengths[k]-1, shipnames[k]) == true){
                     k++;
                 }
                 } else if (direction == 2){
-                if (addShipToBoard(bowrow,bowcolumn,bowrow-shiplengths[k]+1,bowcolumn) == true){
+                if (addShipToBoard(bowrow,bowcolumn,bowrow-shiplengths[k]+1,bowcolumn, shipnames[k]) == true){
                     k++;
                 }
                 } else {
-                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn-shiplengths[k]+1) == true)
+                if (addShipToBoard(bowrow,bowcolumn,bowrow,bowcolumn-shiplengths[k]+1, shipnames[k]) == true)
                     k++;
                 }
  
@@ -145,7 +152,7 @@ public class Board {
         }
     }
 
-    public boolean addShipToBoard(int row1, int column1, int row2, int column2) {
+    public boolean addShipToBoard(int row1, int column1, int row2, int column2, String name) {
 
         // tarkistetaan, että laiva ei ole päätymässä out of bounds.
         if (row1 < 0 || column1 < 0 || row2 < 0 || column2 < 0 || row1 > this.board.length - 1 || column1 > this.board.length - 1 || row2 > this.board.length - 1 || column2 > this.board.length - 1) {
@@ -224,8 +231,10 @@ public class Board {
         
         
         
-        Ship ship = new Ship(lenght, position);
+        Ship ship = new Ship(lenght, position, name);
 
+        
+        
         this.shiplist.add(ship);
 
         this.owner.addLives(ship.lives);

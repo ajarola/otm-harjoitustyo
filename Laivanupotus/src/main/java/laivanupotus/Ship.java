@@ -17,12 +17,13 @@ public class Ship {
     public int lives;
     public int[][] position;
 
-    public Ship(int lenght, int[][] position) {
+    public Ship(int lenght, int[][] position, String name) {
 
         this.lenght = lenght;
         this.sunk = false;
         this.lives = lenght;
         this.position = position;
+        this.name = name;
 
     }
 
@@ -53,15 +54,12 @@ public class Ship {
     public String getName() {
         return this.name;
     }
-    
-    
-    
-    
+
     public void sink() {
         if (this.lives == 0) {
             this.sunk = true;
 
-            System.out.println("A ship has sunk");
+            System.out.println(this.name + " has sunk");
         }
     }
 
