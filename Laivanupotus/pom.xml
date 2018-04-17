@@ -21,7 +21,7 @@
             <version>0.8.0</version>
 <configuration>
         <excludes>
-            <exclude>ui/*</exclude>
+            <exclude>UI/*</exclude>
         </excludes>
     </configuration>             
  <executions>

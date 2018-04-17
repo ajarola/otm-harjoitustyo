@@ -5,18 +5,40 @@
  */
 package laivanupotus;
 
+import java.io.*;
+
 /**
  *
  * @author Aleksi
  */
 public class Statistics {
     
+    public FileReader reader;
+    public PrintWriter writer;
     
+    public Statistics(){
+
+    }
     //Tänne tulee jossain kohtaa tulosten tallentamiseen liittyviä juttuja
     
     
+ 
+    public void RecordStats(){
+        
+        try {
+            writer = new PrintWriter("statistics.txt");
+
+            writer.println("asdasdasd");
+            
+            writer.close();
     
-    
+        } catch (IOException ex) {
+            System.out.println("Something went wrong");
+        }
+        
+        
+        
+    }
     
     
     

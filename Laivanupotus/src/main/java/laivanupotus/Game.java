@@ -19,7 +19,8 @@ public class Game {
     public Player player;
     public Player opponent;
     public Random random;
-
+    public Statistics statistics;
+    
     public Game() {
 
         this.scanner = new Scanner(System.in);
@@ -44,6 +45,9 @@ public class Game {
 
         System.out.println("To begin playing type your name:");
 
+        this.statistics = new Statistics();
+        this.statistics.RecordStats();
+        
         this.player = new Player(scanner.nextLine());
         this.opponent = new Player("Opponent");
 
