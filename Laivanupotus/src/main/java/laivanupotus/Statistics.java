@@ -12,35 +12,34 @@ import java.io.*;
  * @author Aleksi
  */
 public class Statistics {
-    
+
     public FileReader reader;
     public PrintWriter writer;
-    
-    public Statistics(){
+    public int turnsTaken;
+    public String playerName;
+    public String outcome;
+
+    public Statistics(String player) {
+
+        this.playerName = player;
+        this.outcome = "Undecided";
+        this.turnsTaken = 0;
 
     }
-    //Tänne tulee jossain kohtaa tulosten tallentamiseen liittyviä juttuja
-    
-    
- 
-    public void RecordStats(){
-        
+
+    public void RecordStats() {
+
         try {
-            writer = new PrintWriter("statistics.txt");
+            this.writer = new PrintWriter(new FileWriter("statistics.txt", true));
 
-            writer.println("asdasdasd");
-            
+            writer.println("Player: " + this.playerName + "   outcome:" + this.outcome + "   turns taken: " + this.turnsTaken);
+
             writer.close();
-    
+
         } catch (IOException ex) {
-            System.out.println("Something went wrong");
+            System.out.println("Something went wrong with recording the match statistics.");
         }
-        
-        
-        
+
     }
-    
-    
-    
-    
+
 }

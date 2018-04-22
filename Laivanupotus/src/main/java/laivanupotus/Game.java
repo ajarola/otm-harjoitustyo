@@ -20,7 +20,7 @@ public class Game {
     public Player opponent;
     public Random random;
     public Statistics statistics;
-    
+
     public Game() {
 
         this.scanner = new Scanner(System.in);
@@ -45,11 +45,10 @@ public class Game {
 
         System.out.println("To begin playing type your name:");
 
-        this.statistics = new Statistics();
-        this.statistics.RecordStats();
-        
         this.player = new Player(scanner.nextLine());
         this.opponent = new Player("Opponent");
+
+        this.statistics = new Statistics(this.player.getName());
 
         this.opponentboard = new Board(10, this.opponent);
         this.playerboard = new Board(10, this.player);
@@ -57,13 +56,13 @@ public class Game {
         System.out.println("Type 1 to automatically place your ships or type 2 to place them manually:");
 
         int choice = 1;
-        
+
         try {
             choice = Integer.parseInt(this.scanner.nextLine());
-        } catch(NumberFormatException e) { 
+        } catch (NumberFormatException e) {
             System.out.println("Invalid user input. Your ships have been automatically placed, because you probably couldn't place them manually anyways.");
         }
-        if (choice == 1) {
+        if (choice != 2) {
             this.playerboard.randomBoard();
         } else {
 
@@ -109,6 +108,8 @@ public class Game {
 
         while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
 
+            this.statistics.turnsTaken++;
+
             int row = 999;
             int column = 999;
 
@@ -125,6 +126,11 @@ public class Game {
 
             }
 
+            if (row == 666){
+                break;
+            }
+            
+            
             if (this.opponentboard.shoot(row, column) == true) {
                 this.opponent.hit();
                 this.opponent.lose();
@@ -154,6 +160,13 @@ public class Game {
 
             }
         }
+
+        if (this.opponent.hasLost() == true) {
+            this.statistics.outcome = "win";
+        } else if (this.player.hasLost() == true) {
+            this.statistics.outcome = "lose";
+        }
+        this.statistics.RecordStats();
 
     }
 

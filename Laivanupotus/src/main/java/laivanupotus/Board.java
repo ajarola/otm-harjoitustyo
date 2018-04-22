@@ -21,12 +21,7 @@ public class Board {
 
         this.owner = owner;
 
-        this.board = new int[size][size];
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                this.board[i][j] = -1;
-            }
-        }
+        this.board = initializeArray(size);
 
         this.shiplist = new ArrayList();
 
@@ -106,8 +101,8 @@ public class Board {
 
     public void randomBoard() {
 
-    //Laivojen sijoittaminen satunnaisesti pelikentälle. Ei tässä kohtaa rajoituksia laivojen sijainnin suhteen
-    //toisiinsa nähden, paitsi, että eivät saa olla päällekkäin.
+        //Laivojen sijoittaminen satunnaisesti pelikentälle. Ei tässä kohtaa rajoituksia laivojen sijainnin suhteen
+        //toisiinsa nähden, paitsi, että eivät saa olla päällekkäin.
         Random shiplocator = new Random();
 
         int[] shiplengths = {5, 4, 3, 3, 2};
@@ -162,68 +157,91 @@ public class Board {
             column2 = helper;
         }
 
-        int[][] position = new int[this.board.length][this.board.length];
-
-        for (int i = 0; i < this.board.length; i++) {
-            for (int j = 0; j < this.board.length; j++) {
-                position[i][j] = -1;
-            }
-        }
-
+        int[][] position;
         int lenght;
 
         if (column1 == column2) {
 
+            position = BuildShipPositionRow(row1, row2, column1);
             lenght = row2 - row1 + 1;
-            int midrow = row1;
-
-            while (midrow <= row2) {
-
-                if (this.board[midrow][column1] != -1) {
-                    return false;
-                }
-
-                position[midrow][column1] = 1;
-
-                midrow++;
-            }
 
         } else if (row1 == row2) {
 
+            position = BuildShipPositionColumn(row1, column1, column2);
             lenght = column2 - column1 + 1;
-            int midcolumn = column1;
-
-            while (midcolumn <= column2) {
-
-                if (this.board[row1][midcolumn] != -1) {
-                    return false;
-                }
-
-                position[row1][midcolumn] = 1;
-
-                midcolumn++;
-            }
 
         } else {
             return false;
         }
 
+        if (checkPositionLegality(position) == false) {
+            return false;
+        }
+
+        ShipLocationToBoard(position);
+        
+        this.shiplist.add(new Ship(lenght, position, name));
+        this.owner.addLives(new Ship(lenght, position, name).lives);
+
+        return true;
+    }
+
+    public int[][] initializeArray(int size) {
+
+        int[][] array = new int[size][size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                array[i][j] = -1;
+            }
+        }
+        return array;
+    }
+
+    public void ShipLocationToBoard(int[][] position) {
+
         for (int i = 0; i < this.board.length; i++) {
             for (int j = 0; j < this.board.length; j++) {
+
                 if (position[i][j] == 1) {
                     this.board[i][j] = 1;
                 }
             }
         }
+    }
 
-        Ship ship = new Ship(lenght, position, name);
+    public boolean checkPositionLegality(int[][] position) {
 
-        this.shiplist.add(ship);
-
-        this.owner.addLives(ship.lives);
-
+        for (int i = 0; i < position.length; i++) {
+            for (int j = 0; j < position.length; j++) {
+                if (position[i][j] == 1 && this.board[i][j] != -1) {
+                    return false;
+                }
+            }
+        }
         return true;
+    }
 
+    public int[][] BuildShipPositionRow(int startRow, int endRow, int column) {
+
+        int[][] position = initializeArray(this.board.length);
+
+        while (startRow <= endRow) {
+            position[startRow][column] = 1;
+            startRow++;
+        }
+        return position;
+    }
+
+    public int[][] BuildShipPositionColumn(int row, int startColumn, int endColumn) {
+
+        int[][] position = initializeArray(this.board.length);
+
+        while (startColumn <= endColumn) {
+            position[row][startColumn] = 1;
+            startColumn++;
+        }
+        return position;
     }
 
 }
