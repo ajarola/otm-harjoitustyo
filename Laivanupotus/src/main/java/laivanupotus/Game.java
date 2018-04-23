@@ -47,9 +47,7 @@ public class Game {
 
         this.player = new Player(scanner.nextLine());
         this.opponent = new Player("Opponent");
-
         this.statistics = new Statistics(this.player.getName());
-
         this.opponentboard = new Board(10, this.opponent);
         this.playerboard = new Board(10, this.player);
 
@@ -70,9 +68,10 @@ public class Game {
 
             String[] shipnames = {"Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"};
             int ships = 0;
+
             while (ships < 5) {
 
-                System.out.println("To build a new ship type starting row and column for a ship, then type end row and column for it:");
+                System.out.println("To build a new ship type the start row and column for a ship, then type the end row and column for it:");
 
                 int row1 = 999;
                 int column1 = 999;
@@ -80,18 +79,17 @@ public class Game {
                 int column2 = 999;
 
                 try {
-                    System.out.println("starting row:");
+                    System.out.println("start row:");
                     row1 = Integer.parseInt(this.scanner.nextLine());
-                    System.out.println("starting column:");
+                    System.out.println("start column:");
                     column1 = Integer.parseInt(this.scanner.nextLine());
-                    System.out.println("ending row:");
+                    System.out.println("end row:");
                     row2 = Integer.parseInt(this.scanner.nextLine());
-                    System.out.println("ending column:");
+                    System.out.println("end column:");
                     column2 = Integer.parseInt(this.scanner.nextLine());
                 } catch (NumberFormatException e) {
 
                 }
-
                 if (this.playerboard.addShipToBoard(row1, column1, row2, column2, shipnames[ships]) == true) {
                     ships++;
                     System.out.println("Ship succesfully added to your board.");
@@ -100,22 +98,22 @@ public class Game {
                 }
                 this.playerboard.showOwnBoard();
             }
-
             System.out.println("Your board is complete.");
         }
 
         this.opponentboard.randomBoard();
 
+        System.out.println("Follow given instructions to play. If you want to end the game early, type negative value for row.");
+        System.out.println("The game begins!");
+        
         while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
 
             this.statistics.turnsTaken++;
 
+            showBoards();
+
             int row = 999;
             int column = 999;
-
-            this.opponentboard.showOpponentBoard();
-            System.out.print("---------------------------------------------------");
-            this.playerboard.showOwnBoard();
 
             try {
                 System.out.println("type row to shoot");
@@ -126,40 +124,52 @@ public class Game {
 
             }
 
-            if (row == 666){
+            if (row < 0) {
                 break;
             }
-            
-            
+
             if (this.opponentboard.shoot(row, column) == true) {
-                this.opponent.hit();
-                this.opponent.lose();
+                System.out.println("You hit a ship");
             }
 
             if (this.opponent.hasLost() == false) {
 
-                boolean hasshot = false;
+                boolean hasShot = false;
 
-                while (hasshot == false) {
-
+                while (hasShot == false) {
                     int randomrow = this.random.nextInt(10);
                     int randomcolumn = this.random.nextInt(10);
-
                     if (playerboard.board[randomrow][randomcolumn] != 2 && playerboard.board[randomrow][randomcolumn] != 0) {
-
-                        hasshot = true;
-
-                        if (this.playerboard.shoot(randomrow, randomcolumn) == true) {
-                            this.player.hit();
-                            this.player.lose();
-                        }
+                        hasShot = true;
+                        this.playerboard.shoot(row, column);
 
                     }
-
                 }
-
             }
         }
+        announceWinner();
+        
+    }
+
+    public void showBoards() {
+        this.opponentboard.showOpponentBoard();
+        System.out.print("---------------------------------------------------");
+        this.playerboard.showOwnBoard();
+    }
+
+    public void announceWinner(){
+        
+        if (this.opponent.hasLost() == true) {
+            System.out.println(this.player.getName() + " has won the match!");
+        } else if (this.player.hasLost() == true) {
+            System.out.println(this.player.getName() + " has lost the match!");
+        }else{
+            System.out.println("Match ended prematurely.");
+        }     
+        Record();    
+    }
+    
+    public void Record() {
 
         if (this.opponent.hasLost() == true) {
             this.statistics.outcome = "win";
@@ -167,7 +177,6 @@ public class Game {
             this.statistics.outcome = "lose";
         }
         this.statistics.RecordStats();
-
     }
 
 }

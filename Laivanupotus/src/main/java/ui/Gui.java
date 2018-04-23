@@ -5,21 +5,26 @@
  */
 package ui;
 
+import javafx.application.Application;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+import laivanupotus.Game;
+
 /**
  *
  * @author ajarola
  */
-public class Gui {
-    
-    //Tulossa kun ehdin tekemään, minulla ei kyllä ole hajuakaan graafisen käyttöliittymän
-    //tekemisestä, mutta yritän opetella.
-    
+public class Gui extends Application {
+
+    //En osaa :D
     
     
-    
-    
-    
-    
-    
-    
+    @Override
+    public void start(Stage window) {
+
+        
+
+    }
+
 }

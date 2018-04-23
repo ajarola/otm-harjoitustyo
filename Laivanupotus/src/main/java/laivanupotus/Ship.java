@@ -44,7 +44,6 @@ public class Ship {
     }
 
     public void hit() {
-        System.out.println(this.name + " was hit");
         if (this.lives > 0) {
             this.lives--;
         }
@@ -58,8 +57,6 @@ public class Ship {
     public void sink() {
         if (this.lives == 0) {
             this.sunk = true;
-
-            System.out.println(this.name + " has sunk");
         }
     }
 

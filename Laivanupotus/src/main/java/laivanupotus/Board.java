@@ -18,13 +18,10 @@ public class Board {
     public Player owner;
 
     public Board(int size, Player owner) {
-
+        
         this.owner = owner;
-
         this.board = initializeArray(size);
-
         this.shiplist = new ArrayList();
-
     }
 
     public boolean shoot(int row, int column) {
@@ -33,22 +30,11 @@ public class Board {
             System.out.println("Invalid input (not an integer) or shot out of bounds.");
             return false;
         }
-
-        for (Ship ship : this.shiplist) {
-
-            if (ship.getPosition()[row][column] == 1) {
-                this.board[row][column] = 2;
-
-                ship.getPosition()[row][column] = -1;
-                ship.hit();
-                return true;
-            }
-
+        if (checkShipsForHits(row, column) == true){
+            this.owner.hit();
+            return true;
         }
-
-        if (this.board[row][column] != 2) {
-            this.board[row][column] = 0;
-        }
+        else
         return false;
     }
 
@@ -244,4 +230,22 @@ public class Board {
         return position;
     }
 
+    public boolean checkShipsForHits(int row, int column){
+        
+        for (Ship ship : this.shiplist) {
+            if (ship.getPosition()[row][column] == 1) {
+                this.board[row][column] = 2;
+                ship.getPosition()[row][column] = -1;
+                ship.hit();
+                return true;
+            }
+        } 
+        if (this.board[row][column] != 2) {
+            this.board[row][column] = 0;
+        }
+        return false;
+    }
+    
+    
+    
 }

@@ -45,11 +45,4 @@ public class Player {
             return true;
         }
     }
-
-    public void lose() {
-        if (this.lives <= 0) {
-            System.out.println(this.name + " has lost the game");
-        }
-    }
-
 }
