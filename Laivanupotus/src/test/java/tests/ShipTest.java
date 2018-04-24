@@ -43,11 +43,8 @@ public class ShipTest {
     public void setUp() {
     this.player = new Player("Seppo");
     this.gameboard = new Board(10,this.player);
-    
     this.gameboard.addShipToBoard(0, 0, 0, 4, "Destroyer");
-    
-    
-    
+
     }
             
    

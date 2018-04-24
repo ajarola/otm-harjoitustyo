@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package laivanupotus;
+package ui;
 
 import java.util.*;
+import laivanupotus.Board;
+import laivanupotus.Player;
+import laivanupotus.Statistics;
 
 /**
  *
@@ -179,4 +182,11 @@ public class Game {
         this.statistics.RecordStats();
     }
 
+    public static void main(String[] args) throws Exception {
+        
+        Game game = new Game();
+        
+    }
+    
+    
 }
