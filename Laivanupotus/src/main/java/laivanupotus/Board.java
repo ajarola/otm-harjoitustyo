@@ -18,7 +18,7 @@ public class Board {
     public Player owner;
 
     public Board(int size, Player owner) {
-        
+
         this.owner = owner;
         this.board = initializeArray(size);
         this.shiplist = new ArrayList();
@@ -30,12 +30,12 @@ public class Board {
             System.out.println("Invalid input (not an integer) or shot out of bounds.");
             return false;
         }
-        if (checkShipsForHits(row, column) == true){
+        if (checkShipsForHits(row, column) == true) {
             this.owner.hit();
             return true;
+        } else {
+            return false;
         }
-        else
-        return false;
     }
 
     public void showOwnBoard() {
@@ -148,12 +148,12 @@ public class Board {
 
         if (column1 == column2) {
 
-            position = BuildShipPositionRow(row1, row2, column1);
+            position = buildShipPositionRow(row1, row2, column1);
             lenght = row2 - row1 + 1;
 
         } else if (row1 == row2) {
 
-            position = BuildShipPositionColumn(row1, column1, column2);
+            position = buildShipPositionColumn(row1, column1, column2);
             lenght = column2 - column1 + 1;
 
         } else {
@@ -164,8 +164,8 @@ public class Board {
             return false;
         }
 
-        ShipLocationToBoard(position);
-        
+        shipLocationToBoard(position);
+
         this.shiplist.add(new Ship(lenght, position, name));
         this.owner.addLives(new Ship(lenght, position, name).lives);
 
@@ -184,7 +184,7 @@ public class Board {
         return array;
     }
 
-    public void ShipLocationToBoard(int[][] position) {
+    public void shipLocationToBoard(int[][] position) {
 
         for (int i = 0; i < this.board.length; i++) {
             for (int j = 0; j < this.board.length; j++) {
@@ -208,7 +208,7 @@ public class Board {
         return true;
     }
 
-    public int[][] BuildShipPositionRow(int startRow, int endRow, int column) {
+    public int[][] buildShipPositionRow(int startRow, int endRow, int column) {
 
         int[][] position = initializeArray(this.board.length);
 
@@ -219,7 +219,7 @@ public class Board {
         return position;
     }
 
-    public int[][] BuildShipPositionColumn(int row, int startColumn, int endColumn) {
+    public int[][] buildShipPositionColumn(int row, int startColumn, int endColumn) {
 
         int[][] position = initializeArray(this.board.length);
 
@@ -230,8 +230,8 @@ public class Board {
         return position;
     }
 
-    public boolean checkShipsForHits(int row, int column){
-        
+    public boolean checkShipsForHits(int row, int column) {
+
         for (Ship ship : this.shiplist) {
             if (ship.getPosition()[row][column] == 1) {
                 this.board[row][column] = 2;
@@ -239,13 +239,10 @@ public class Board {
                 ship.hit();
                 return true;
             }
-        } 
+        }
         if (this.board[row][column] != 2) {
             this.board[row][column] = 0;
         }
         return false;
     }
-    
-    
-    
 }

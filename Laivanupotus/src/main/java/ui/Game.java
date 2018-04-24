@@ -169,17 +169,17 @@ public class Game {
         }else{
             System.out.println("Match ended prematurely.");
         }     
-        Record();    
+        record();    
     }
     
-    public void Record() {
+    public void record() {
 
         if (this.opponent.hasLost() == true) {
             this.statistics.outcome = "win";
         } else if (this.player.hasLost() == true) {
             this.statistics.outcome = "lose";
         }
-        this.statistics.RecordStats();
+        this.statistics.recordStats();
     }
 
     public static void main(String[] args) throws Exception {

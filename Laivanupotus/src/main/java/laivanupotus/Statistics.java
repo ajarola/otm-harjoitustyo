@@ -27,7 +27,7 @@ public class Statistics {
 
     }
 
-    public void RecordStats() {
+    public void recordStats() {
 
         try {
             this.writer = new PrintWriter(new FileWriter("statistics.txt", true));

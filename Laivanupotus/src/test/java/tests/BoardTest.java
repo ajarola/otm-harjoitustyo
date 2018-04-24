@@ -25,6 +25,8 @@ public class BoardTest {
     Player player;
     Board gameboard;
     Ship ship;
+    int[][] position;
+    
     public BoardTest() {
     
     
@@ -45,6 +47,16 @@ public class BoardTest {
     this.gameboard = new Board(10,this.player);
     
     this.gameboard.addShipToBoard(0, 0, 0, 4, "Destroyer");
+    
+    this.position = new int[10][10];
+    
+    for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                position[i][j] = -1;
+            }
+    }
+    this.position[0][0] = 1;
+    this.position[0][1] = 1;
     
     
     
@@ -96,6 +108,60 @@ public class BoardTest {
         
     }
     
+    @Test
+    public void initializeArrayLengthTest(){
+        assertEquals(10, gameboard.initializeArray(10).length);
+        
+    }
+    
+    @Test
+    public void initializeArrayValueTest(){
+        assertEquals(-1, gameboard.initializeArray(10)[5][5]);
+        
+    }
+    
+    @Test
+    public void ShipLocationToBoardShipTest(){
+        gameboard.shipLocationToBoard(position);
+        assertEquals(1, gameboard.board[0][0]);    
+    }
+    
+    @Test
+    public void ShipLocationToBoardWaterTest(){
+        gameboard.shipLocationToBoard(position);
+        assertEquals(-1, gameboard.board[5][5]);    
+    }
+    
+    @Test
+    public void CheckPositionLegalityCorrectTest(){
+        assertEquals(true, gameboard.checkPositionLegality(position));      
+    }
+    
+    @Test
+    public void CheckPositionLegalityIncorrectTest(){
+        gameboard.shipLocationToBoard(position);
+        assertEquals(false, gameboard.checkPositionLegality(position));    
+    }
+    
+    @Test
+    public void BuildShipPositionRowTest(){
+        assertEquals(1, gameboard.buildShipPositionRow(5, 6, 0)[5][0]);    
+    }
+    
+    @Test
+    public void BuildShipPositionColumnTest(){
+        assertEquals(1, gameboard.buildShipPositionRow(8, 7, 9)[8][7]);    
+    }
+    
+    @Test
+    public void CheckShipsForHitsTrueTest(){
+        assertEquals(true, gameboard.checkShipsForHits(0, 0));    
+    }
+    
+    @Test
+    public void CheckShipsForHitsFalseTest(){
+        assertEquals(true, gameboard.checkShipsForHits(7, 7));    
+    }
 }
 
 
