@@ -133,11 +133,6 @@ public class BoardTest {
     }
     
     @Test
-    public void CheckPositionLegalityCorrectTest(){
-        assertEquals(true, gameboard.checkPositionLegality(position));      
-    }
-    
-    @Test
     public void CheckPositionLegalityIncorrectTest(){
         gameboard.shipLocationToBoard(position);
         assertEquals(false, gameboard.checkPositionLegality(position));    
@@ -150,7 +145,7 @@ public class BoardTest {
     
     @Test
     public void BuildShipPositionColumnTest(){
-        assertEquals(1, gameboard.buildShipPositionRow(8, 7, 9)[8][7]);    
+        assertEquals(1, gameboard.buildShipPositionColumn(6, 0, 4)[6][0]);    
     }
     
     @Test
@@ -160,7 +155,7 @@ public class BoardTest {
     
     @Test
     public void CheckShipsForHitsFalseTest(){
-        assertEquals(true, gameboard.checkShipsForHits(7, 7));    
+        assertEquals(false, gameboard.checkShipsForHits(7, 7));    
     }
 }
 
