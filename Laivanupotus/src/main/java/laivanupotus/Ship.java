@@ -11,11 +11,11 @@ package laivanupotus;
  */
 public class Ship {
 
-    public String name;
-    public int lenght;
-    public boolean sunk;
-    public int lives;
-    public int[][] position;
+    private String name;
+    private int lenght;
+    private boolean sunk;
+    private int lives;
+    private int[][] position;
 
     public Ship(int lenght, int[][] position, String name) {
 

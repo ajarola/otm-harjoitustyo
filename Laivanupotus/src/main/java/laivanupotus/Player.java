@@ -11,8 +11,8 @@ package laivanupotus;
  */
 public class Player {
 
-    public String name;
-    public int lives;
+    private String name;
+    private int lives;
 
     public Player(String name) {
 

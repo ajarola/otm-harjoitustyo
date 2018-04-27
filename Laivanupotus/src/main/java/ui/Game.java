@@ -16,13 +16,13 @@ import laivanupotus.Statistics;
  */
 public class Game {
 
-    public Scanner scanner;
-    public Board opponentboard;
-    public Board playerboard;
-    public Player player;
-    public Player opponent;
-    public Random random;
-    public Statistics statistics;
+    private Scanner scanner;
+    private Board opponentboard;
+    private Board playerboard;
+    private Player player;
+    private Player opponent;
+    private Random random;
+    private Statistics statistics;
 
     public Game() {
 
@@ -111,7 +111,7 @@ public class Game {
         
         while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
 
-            this.statistics.turnsTaken++;
+            this.statistics.newTurn();
 
             showBoards();
 
@@ -136,15 +136,15 @@ public class Game {
             }
 
             if (this.opponent.hasLost() == false) {
-
+             
                 boolean hasShot = false;
 
                 while (hasShot == false) {
                     int randomrow = this.random.nextInt(10);
                     int randomcolumn = this.random.nextInt(10);
-                    if (playerboard.board[randomrow][randomcolumn] != 2 && playerboard.board[randomrow][randomcolumn] != 0) {
+                    if (playerboard.getBoard()[randomrow][randomcolumn] != 2 && playerboard.getBoard()[randomrow][randomcolumn] != 0) {
                         hasShot = true;
-                        this.playerboard.shoot(row, column);
+                        this.playerboard.shoot(randomrow, randomcolumn);
 
                     }
                 }
@@ -175,9 +175,9 @@ public class Game {
     public void record() {
 
         if (this.opponent.hasLost() == true) {
-            this.statistics.outcome = "win";
+            this.statistics.setOutcome("win");
         } else if (this.player.hasLost() == true) {
-            this.statistics.outcome = "lose";
+            this.statistics.setOutcome("lose");
         }
         this.statistics.recordStats();
     }

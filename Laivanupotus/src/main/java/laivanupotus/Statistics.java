@@ -12,12 +12,12 @@ import java.io.*;
  * @author Aleksi
  */
 public class Statistics {
-
-    public FileReader reader;
-    public PrintWriter writer;
-    public int turnsTaken;
-    public String playerName;
-    public String outcome;
+    
+    private FileReader reader;
+    private PrintWriter writer;
+    private int turnsTaken;
+    private String playerName;
+    private String outcome;
 
     public Statistics(String player) {
 
@@ -42,4 +42,28 @@ public class Statistics {
 
     }
 
+    
+    public String getOutcome(){
+        return this.outcome;
+    }
+    
+    
+    public void setOutcome(String outcome){
+        this.outcome = outcome;
+    }
+    
+    
+    public String getPlayerName(){
+        return this.playerName;
+    }
+    
+    public int getTurnsTaken(){
+        return this.turnsTaken;
+    }
+    
+    public void newTurn(){
+        this.turnsTaken++;
+    }
+    
+    
 }

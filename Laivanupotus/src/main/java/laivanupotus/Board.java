@@ -13,9 +13,9 @@ import java.util.*;
  */
 public class Board {
 
-    public ArrayList<Ship> shiplist;
-    public int[][] board;
-    public Player owner;
+    private ArrayList<Ship> shiplist;
+    private int[][] board;
+    private Player owner;
 
     public Board(int size, Player owner) {
 
@@ -43,10 +43,10 @@ public class Board {
         System.out.println("\n");
         System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");
 
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < this.board.length; i++) {
             System.out.print(help + "    ");
             help++;
-            for (int j = 0; j < board.length; j++) {
+            for (int j = 0; j < this.board.length; j++) {
                 if (this.board[i][j] == -1) {
                     System.out.print("~" + "    ");
                 } else if (this.board[i][j] == 1) {
@@ -68,10 +68,10 @@ public class Board {
         System.out.println("\n");
         System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");
 
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < this.board.length; i++) {
             System.out.print(help + "    ");
             help++;
-            for (int j = 0; j < board.length; j++) {
+            for (int j = 0; j < this.board.length; j++) {
                 if (this.board[i][j] == -1 || this.board[i][j] == 1) {
                     System.out.print("~" + "    ");
                 } else if (this.board[i][j] == 2) {
@@ -167,7 +167,7 @@ public class Board {
         shipLocationToBoard(position);
 
         this.shiplist.add(new Ship(lenght, position, name));
-        this.owner.addLives(new Ship(lenght, position, name).lives);
+        this.owner.addLives(lenght);
 
         return true;
     }
@@ -245,4 +245,9 @@ public class Board {
         }
         return false;
     }
+
+    public int[][] getBoard(){
+        return this.board;
+    }
+
 }
