@@ -62,43 +62,43 @@ void testPlayerHasLost(){
         
     @Test
     public void testShipLenght(){
-        assertEquals(5, this.gameboard.shiplist.get(0).getLenght());
+        assertEquals(5, this.gameboard.getShiplist().get(0).getLenght());
         
     }
     
     @Test
     public void testShipName(){
-        assertEquals("Destroyer", this.gameboard.shiplist.get(0).getName());
+        assertEquals("Destroyer", this.gameboard.getShiplist().get(0).getName());
         
     }
     
     @Test
     public void testShipPosition(){
-        assertEquals(1, this.gameboard.shiplist.get(0).position[0][0]);
+        assertEquals(1, this.gameboard.getShiplist().get(0).getPosition()[0][0]);
         
     }
     
     @Test
     public void testShipHit(){
-        this.gameboard.shiplist.get(0).hit();
-        assertEquals(4, this.gameboard.shiplist.get(0).getLives());
+        this.gameboard.getShiplist().get(0).hit();
+        assertEquals(4, this.gameboard.getShiplist().get(0).getLives());
         
     }
     
     @Test
     public void testShipNotSunk(){
-        assertEquals(false, this.gameboard.shiplist.get(0).isSunk());
+        assertEquals(false, this.gameboard.getShiplist().get(0).isSunk());
         
     }
     
     @Test
     public void testShipSinkingWhenHitEnough(){
-        this.gameboard.shiplist.get(0).hit();
-        this.gameboard.shiplist.get(0).hit();
-        this.gameboard.shiplist.get(0).hit();
-        this.gameboard.shiplist.get(0).hit();
-        this.gameboard.shiplist.get(0).hit();
-        assertEquals(true, this.gameboard.shiplist.get(0).isSunk());
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        assertEquals(true, this.gameboard.getShiplist().get(0).isSunk());
         
     }
     

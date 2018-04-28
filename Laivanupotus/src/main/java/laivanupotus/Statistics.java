@@ -8,7 +8,7 @@ package laivanupotus;
 import java.io.*;
 
 /**
- *
+ *Luokan avulla toteutetaan pelattujen pelien tulosten tallentaminen muistiin.
  * @author Aleksi
  */
 public class Statistics {
@@ -27,6 +27,10 @@ public class Statistics {
 
     }
 
+/**
+* Metodia k‰ytet‰‰n pelin tulosten tallentamiseen. Tulokset tallennetaan statistics.txt nimiseen tekstitiedostoon, ja jos t‰llaista
+* tiedostoa ei ole jo olemassa niin luodaan sellainen.
+*/
     public void recordStats() {
 
         try {
@@ -60,7 +64,9 @@ public class Statistics {
     public int getTurnsTaken(){
         return this.turnsTaken;
     }
-    
+/**
+* Metodin pidet‰‰n kirjaa peliss‰ k‰ytetyist‰ vuoroista.
+*/
     public void newTurn(){
         this.turnsTaken++;
     }

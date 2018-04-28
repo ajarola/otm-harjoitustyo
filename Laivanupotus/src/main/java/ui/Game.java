@@ -11,7 +11,7 @@ import laivanupotus.Player;
 import laivanupotus.Statistics;
 
 /**
- *
+ * Luokka toimii laivanupotuksen käyttöliittymänä.
  * @author Aleksi
  */
 public class Game {
@@ -153,13 +153,17 @@ public class Game {
         announceWinner();
         
     }
-
+/**
+* Metodin avulla tulostetaan senhetkinen pelitilanne komentoriville.
+*/
     public void showBoards() {
         this.opponentboard.showOpponentBoard();
         System.out.print("---------------------------------------------------");
         this.playerboard.showOwnBoard();
     }
-
+/**
+* Metodin avulla tulostetaan pelin tulos komentoriville.
+*/
     public void announceWinner(){
         
         if (this.opponent.hasLost() == true) {
@@ -171,7 +175,9 @@ public class Game {
         }     
         record();    
     }
-    
+/**
+* Metodin avulla suoritetaan pelin tulosten tallentaminen hyödyntäen Statistics-luokkkaa.
+*/
     public void record() {
 
         if (this.opponent.hasLost() == true) {

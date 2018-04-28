@@ -72,7 +72,7 @@ public class BoardTest {
     
     @Test
     public void testBoardSize(){
-        assertEquals(10, gameboard.board.length);
+        assertEquals(10, gameboard.getBoard().length);
         
     }
     
@@ -97,14 +97,14 @@ public class BoardTest {
     
     @Test
     public void testShiplistSize(){
-        assertEquals(1, gameboard.shiplist.size());
+        assertEquals(1, gameboard.getShiplist().size());
         
     }
     
     @Test
     public void testRandomBoardShipCount(){
         gameboard.randomBoard();
-        assertEquals(6, gameboard.shiplist.size());
+        assertEquals(6, gameboard.getShiplist().size());
         
     }
     
@@ -123,13 +123,13 @@ public class BoardTest {
     @Test
     public void ShipLocationToBoardShipTest(){
         gameboard.shipLocationToBoard(position);
-        assertEquals(1, gameboard.board[0][0]);    
+        assertEquals(1, gameboard.getBoard()[0][0]);    
     }
     
     @Test
     public void ShipLocationToBoardWaterTest(){
         gameboard.shipLocationToBoard(position);
-        assertEquals(-1, gameboard.board[5][5]);    
+        assertEquals(-1, gameboard.getBoard()[5][5]);    
     }
     
     @Test

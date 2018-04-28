@@ -6,7 +6,8 @@
 package laivanupotus;
 
 /**
- *
+ * Luokka kuvaa pelilaudalla olevia laivoja. Laivoilla on nimi, pituus, pituuteen perustuva määrä elämiä, sijainti sekä vielä
+ * attribuutti, joka kertoo suoraan onko laiva jo uponnut vai edelleen pinnalla.
  * @author Aleksi
  */
 public class Ship {
@@ -38,11 +39,16 @@ public class Ship {
     public int getLives() {
         return this.lives;
     }
-
+/**
+* Metodin avulla voidaan selvittää, onko kyseinen laiva jo uponnut.
+* @return Palauttaa true, jos laiva on uponnut ja false jos näin ei ole.
+*/
     public boolean isSunk() {
         return this.sunk;
     }
-
+/**
+* Metodin avulla vähennetään laivan elämiä osuman sattuessa ja elämien loppuessa upotetaan laiva.
+*/
     public void hit() {
         if (this.lives > 0) {
             this.lives--;
@@ -53,7 +59,10 @@ public class Ship {
     public String getName() {
         return this.name;
     }
-
+/**
+* Metodin avulla vaihdetaan laivan uppoamisesta kertovalle attribuutille arvo true, mikäli laiva on uponnut.
+* Hyödynnetään osana hit() metodia.
+*/
     public void sink() {
         if (this.lives == 0) {
             this.sunk = true;

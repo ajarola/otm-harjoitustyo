@@ -3,7 +3,8 @@ package laivanupotus;
 import java.util.*;
 
 /**
- *
+ * Luokka toimii pelilautana ja sillä on lista laudalle kuuluvista laivoista, taulukko niiden sijainneista sekä tieto pelaajasta,
+ * jolle se kuuluu.
  * @author Aleksi
  */
 public class Board {
@@ -313,5 +314,8 @@ public class Board {
     public int[][] getBoard(){
         return this.board;
     }
-
+    
+    public List<Ship> getShiplist(){
+        return this.shiplist;
+    }
 }
