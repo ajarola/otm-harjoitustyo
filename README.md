@@ -26,7 +26,7 @@ Testikattavuusraportti luodaan komennolla
 mvn test jacoco:report
 ```
 
-### Suoritettavan jarin generointi
+### Suoritettavan jar-tiedoston generointi
 
 Komento
 
