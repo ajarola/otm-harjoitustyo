@@ -11,3 +11,6 @@
 | 22.4. | 2    | Statistics-luokan toiminnalliseksi saattaminen ja metodien pätkimistä |
 | 23.4. | 4    | metodien pätkimistä ja graafisen käyttöliittymän pohdintaa (jos rehellisiä ollaan, niin en sellaista osaa tehdä) |
 | 24.4. | 2    | viikon tavoitteiden täyttäminen mm. releasen, checkstylen ja arkkitehtuurin osalta |
+| 27.4. | 2    | Javadocin tekemisen aloitus |
+| 28.4. | 2    | lisää Javadocia |
+| 29.4. | 1    | pientä parantelua repositorioon Githubin päässä |
