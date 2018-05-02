@@ -10,6 +10,8 @@
 
 [Release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko5)
 
+[Käyttöohje](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
+
 ## Komentorivitoiminnot
 
 ### Testaus
@@ -51,4 +53,4 @@ JavaDoc generoidaan komennolla
 ```
 mvn javadoc:javadoc
 ```
-Testikattavuusraportti, Javadoc sekä Checkstyle-raportti löytyvät generoimisen jälkeen _target_ hakemiston alta.
+Testikattavuusraportti, JavaDoc sekä Checkstyle-raportti löytyvät generoimisen jälkeen _target_ hakemiston alta.
