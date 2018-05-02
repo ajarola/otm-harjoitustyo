@@ -14,3 +14,5 @@
 | 27.4. | 2    | Javadocin tekemisen aloitus |
 | 28.4. | 2    | lisää Javadocia |
 | 29.4. | 1    | pientä parantelua repositorioon Githubin päässä |
+|  2.5. | 4    | Parannuksia projektiin, Javadocin tekoa, testien lisäämistä, checkstyle-virheiden korjaamista ja uusi release |
+|  2.5. | 1    | Parannuksia repositorioon dokumentoinnin osalta |
