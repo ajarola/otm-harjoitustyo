@@ -10,6 +10,8 @@
 
 [Release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko5)
 
+[Käyttöohje](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
+
 ## Komentorivitoiminnot
 
 ### Testaus
@@ -44,3 +46,11 @@ Checkstyle tarkastukset suoritetaan komennolla
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+### JavaDoc
+
+JavaDoc generoidaan komennolla
+
+```
+mvn javadoc:javadoc
+```
+Testikattavuusraportti, JavaDoc sekä Checkstyle-raportti löytyvät generoimisen jälkeen _target_ hakemiston alta.
