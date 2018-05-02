@@ -11,10 +11,10 @@ import laivanupotus.Player;
 import laivanupotus.Statistics;
 
 /**
- * Luokka toimii laivanupotuksen k‰yttˆliittym‰n‰.
+ * Luokka toimii laivanupotuksen k√§ytt√∂liittym√§n√§.
  * @author Aleksi
  */
-public class Game {
+public class GameUi {
 
     private Scanner scanner;
     private Board opponentboard;
@@ -24,7 +24,7 @@ public class Game {
     private Random random;
     private Statistics statistics;
 
-    public Game() {
+    public GameUi() {
 
         this.scanner = new Scanner(System.in);
 
@@ -176,7 +176,7 @@ public class Game {
         record();    
     }
 /**
-* Metodin avulla suoritetaan pelin tulosten tallentaminen hyˆdynt‰en Statistics-luokkkaa.
+* Metodin avulla suoritetaan pelin tulosten tallentaminen hy√∂dynt√§en Statistics-luokkkaa.
 */
     public void record() {
 
@@ -190,7 +190,7 @@ public class Game {
 
     public static void main(String[] args) throws Exception {
         
-        Game game = new Game();
+        GameUi game = new GameUi();
         
     }
     

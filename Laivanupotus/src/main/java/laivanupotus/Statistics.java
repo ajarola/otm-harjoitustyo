@@ -28,7 +28,7 @@ public class Statistics {
     }
 
 /**
-* Metodia k‰ytet‰‰n pelin tulosten tallentamiseen. Tulokset tallennetaan statistics.txt nimiseen tekstitiedostoon, ja jos t‰llaista
+* Metodia k√§ytet√§√§n pelin tulosten tallentamiseen. Tulokset tallennetaan statistics.txt nimiseen tekstitiedostoon, ja jos t√§llaista
 * tiedostoa ei ole jo olemassa niin luodaan sellainen.
 */
     public void recordStats() {
@@ -65,7 +65,7 @@ public class Statistics {
         return this.turnsTaken;
     }
 /**
-* Metodin pidet‰‰n kirjaa peliss‰ k‰ytetyist‰ vuoroista.
+* Metodin pidet√§√§n kirjaa peliss√§ k√§ytetyist√§ vuoroista.
 */
     public void newTurn(){
         this.turnsTaken++;

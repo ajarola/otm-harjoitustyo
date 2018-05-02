@@ -3,7 +3,7 @@ package laivanupotus;
 import java.util.*;
 
 /**
- * Luokka toimii pelilautana ja sill‰ on lista laudalle kuuluvista laivoista, taulukko niiden sijainneista sek‰ tieto pelaajasta,
+ * Luokka toimii pelilautana ja sillÔøΩ on lista laudalle kuuluvista laivoista, taulukko niiden sijainneista sek√§ tieto pelaajasta,
  * jolle se kuuluu.
  * @author Aleksi
  */
@@ -22,16 +22,16 @@ public class Board {
 
     
 /**
- * Metodi suorittaa ampumatapahtuman. Se tarkastaa ensin onko annettu syˆte laillinen,
- * ja sen j‰lkeen checkShipsForHits-metodin avulla tarkistaa onko osumaa tapahtunut.
- * osuman tapahtuessa kutsuu Player-luokan hit metodia, joka hoitaa pelaajan terveyspisteiden v‰hent‰misen
+ * Metodi suorittaa ampumatapahtuman. Se tarkastaa ensin onko annettu sy√∂te laillinen,
+ * ja sen j√§lkeen checkShipsForHits-metodin avulla tarkistaa onko osumaa tapahtunut.
+ * osuman tapahtuessa kutsuu Player-luokan hit metodia, joka hoitaa pelaajan terveyspisteiden v√§hent√§misen
  * Palauttaa true osuman tapahtuessa, false muuten.
- * @param   row K‰ytt‰j‰n antama tai satunnaisesti tuotettu syˆte, joka m‰‰ritt‰‰ rivin jota ammutaan.
- * @param   column K‰ytt‰j‰n antama tai satunnaisesti tuotettu syˆte, joka m‰‰ritt‰‰ sarakkeen jota ammutaan.
+ * @param   row K√§ytt√§j√§n antama tai satunnaisesti tuotettu sy√∂te, joka m√§√§ritt√§√§ rivin jota ammutaan.
+ * @param   column K√§ytt√§j√§n antama tai satunnaisesti tuotettu sy√∂te, joka m√§√§ritt√§√§ sarakkeen jota ammutaan.
  * 
  * @see
  *
- * @return true tai false, riippuen siit‰ tapahtuiko osumaa.
+ * @return true tai false, riippuen siit√§ tapahtuiko osumaa.
  */   
     public boolean shoot(int row, int column) {
 
@@ -48,7 +48,7 @@ public class Board {
     }
 
  /**
- * Metodi tulostaa pelilaudan merkkiesityksen‰ komentoriville, n‰ytt‰en myˆs laivojen sijainnit. K‰ytet‰‰n oman pelilaudan n‰ytt‰miseen
+ * Metodi tulostaa pelilaudan merkkiesityksen√§ komentoriville, n√§ytt√§en my√∂s laivojen sijainnit. K√§ytet√§√§n oman pelilaudan n√§ytt√§miseen
  * @see
  */  
     public void showOwnBoard() {
@@ -75,7 +75,7 @@ public class Board {
 
     }
  /**
- * Metodi tulostaa pelilaudan merkkiesityksen‰ komentoriville, piilottaen laivojen sijainnit. K‰ytet‰‰n vastustajan pelilaudan n‰ytt‰miseen
+ * Metodi tulostaa pelilaudan merkkiesityksenÔøΩ komentoriville, piilottaen laivojen sijainnit. K√§ytet√§√§n vastustajan pelilaudan n√§ytt√§miseen
  * @see
  */  
     public void showOpponentBoard() {
@@ -102,8 +102,8 @@ public class Board {
     }
 
 /**
- * Metodi luo pelilaudalle satunnaisesti sijoitellut 5 laivaa. Laivojen pituudet ja nimet on ennalta m‰‰r‰tty, mutta niiden sijainti arvotaan
- * arpomalla ensin laivan aloitusrivi ja -sarake sek‰ suunta johon se rakennetaan. Laiva rakennetaan laudalle addShipToBoard-metodin avulla.
+ * Metodi luo pelilaudalle satunnaisesti sijoitellut 5 laivaa. Laivojen pituudet ja nimet on ennalta m√§√§r√§tty, mutta niiden sijainti arvotaan
+ * arpomalla ensin laivan aloitusrivi ja -sarake sek√§ suunta johon se rakennetaan. Laiva rakennetaan laudalle addShipToBoard-metodin avulla.
  */      
     public void randomBoard() {
 
@@ -142,9 +142,9 @@ public class Board {
     }
 
     /**
- * Metodi suorittaa laivan lis‰‰misen pelilaudalle annetun alku- ja loppusijainnin perusteella. ensin tarkistetaan sijainnin
- * olevan pelilaudan sis‰ll‰. Sen j‰lkeen varmistetaan, ett‰ syˆte on oikein muotoiltu ja k‰ytet‰‰n sopivaa buildShip-metodia. t‰m‰n j‰lkeen tarkistetaan
- * viel‰, ettei laiva ole p‰‰tym‰ss‰ toisen p‰‰lle. Sen j‰lkeen merkit‰‰n laivan sijainti pelilaudalle ja t‰m‰n j‰lkeen suoritetaan laivan varsinainen luominen ja
+ * Metodi suorittaa laivan lis√§√§misen pelilaudalle annetun alku- ja loppusijainnin perusteella. ensin tarkistetaan sijainnin
+ * olevan pelilaudan sis√§ll√§. Sen j√§lkeen varmistetaan, ett√§ sy√∂te on oikein muotoiltu ja k√§ytet√§√§n sopivaa buildShip-metodia. t√§m√§n j√§lkeen tarkistetaan
+ * viel√§, ettei laiva ole p√§√§tym√§ss√§ toisen p√§√§lle. Sen j√§lkeen merkit√§√§n laivan sijainti pelilaudalle ja t√§m√§n j√§lkeen suoritetaan laivan varsinainen luominen ja
  * sen oheistoimenpiteet.
  * @param   row1 Laivan aloitusrivi.
  * @param   column1 Laivan aloitussarake.
@@ -153,7 +153,7 @@ public class Board {
  * @param   name Laivan nimi.
  * @see
  *
- * @return true tai false, riippuen siit‰ onnistuuko laivan luominen.
+ * @return true tai false, riippuen siit√§ onnistuuko laivan luominen.
  */  
     public boolean addShipToBoard(int row1, int column1, int row2, int column2, String name) {
 
@@ -201,7 +201,7 @@ public class Board {
         return true;
     }
 /**
- * Metodi luo ja alustaa tietynkokoisen taulukon, jota k‰ytet‰‰n laivojen sijainnin ja pelilaudan ilmentym‰n‰.
+ * Metodi luo ja alustaa tietynkokoisen taulukon, jota k√§ytet√§√§n laivojen sijainnin ja pelilaudan ilmentym√§n√§.
  * @param   size Taulukon koko.
  * @see
  *
@@ -219,7 +219,7 @@ public class Board {
         return array;
     }
 /**
- * Metodi tallentaa laivan sijainnin pelilaudalle. T‰m‰ tapahtuu muuttamalla taulukon lukuarvoja.
+ * Metodi tallentaa laivan sijainnin pelilaudalle. T√§m√§ tapahtuu muuttamalla taulukon lukuarvoja.
  * @param   position Taulukko, johon on merkitty pelilaudalle tuleva laivan sijainti.
  * @see
  */ 
@@ -257,7 +257,7 @@ public class Board {
  * @param   endRow lopetusrivi
  * @param   column sarake, jolla laiva sijaitsee
  * @see
- * @return palauttaa laivan sijainnin sis‰lt‰v‰n taulukon
+ * @return palauttaa laivan sijainnin sis√§lt√§v√§n taulukon
  */ 
     public int[][] buildShipPositionRow(int startRow, int endRow, int column) {
 
@@ -275,7 +275,7 @@ public class Board {
  * @param   startColumn aloitussarake
  * @param   endColumn lopetussarake
  * @see
- * @return palauttaa laivan sijainnin sis‰lt‰v‰n taulukon
+ * @return palauttaa laivan sijainnin sis√§lt√§v√§n taulukon
  */ 
     public int[][] buildShipPositionColumn(int row, int startColumn, int endColumn) {
 
@@ -288,8 +288,8 @@ public class Board {
         return position;
     }
 /**
- * Metodi tarkastaa k‰ym‰ll‰ pelilaudan laivat sis‰lt‰v‰n listan l‰pi, ett‰ onko niist‰ joku
- * syˆtteen‰ annetuissa koordinaateissa. palauttaa true jos n‰in on.
+ * Metodi tarkastaa k√§ym√§ll√§ pelilaudan laivat sis√§lt√§v√§n listan l√§pi, ett√§ onko niist√§ joku
+ * sy√∂tteen√§ annetuissa koordinaateissa. palauttaa true jos n√§in on.
  * @param   row rivi
  * @param   column sarake
  * @see

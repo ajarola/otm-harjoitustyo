@@ -6,8 +6,8 @@
 package laivanupotus;
 
 /**
- *Luokka on pelaajan ilmentymä. Pelaajalla on nimi sekä pelilaudalla oleviin laivoihinsa perustuva määrä elämiä,
- * joiden loppuessa hän häviää pelin.
+ *Luokka on pelaajan ilmentymÃ¤. Pelaajalla on nimi sekï¿½ pelilaudalla oleviin laivoihinsa perustuva mÃ¤Ã¤rÃ¤ elÃ¤miÃ¤,
+ * joiden loppuessa hÃ¤n hÃ¤viÃ¤Ã¤ pelin.
  * @author Aleksi
  */
 public class Player {
@@ -21,7 +21,7 @@ public class Player {
     }
 
  /**
- * Metodi vähentää pelaajan elämiä yhdellä. Käytetään kun kyseisen pelaajan laivoihin osuu.
+ * Metodi vÃ¤hentÃ¤Ã¤ pelaajan elÃ¤miÃ¤ yhdellÃ¤. KÃ¤ytetÃ¤Ã¤n kun kyseisen pelaajan laivoihin osuu.
  */
     public void hit() {
         this.lives--;
@@ -31,8 +31,9 @@ public class Player {
         return this.lives;
     }
  /**
- * Metodi lisää pelaajalle elämiä annetun luvun verran. Käytetään kun pelaajalle lisätään laivoja pelilaudalle.
- * Metodi myös tarkistaa, että annettu luku on positiivinen virheiden välttämiseksi.
+ * Metodi lisÃ¤Ã¤ pelaajalle elÃ¤miÃ¤ annetun luvun verran. KÃ¤ytetÃ¤Ã¤n kun pelaajalle lisÃ¤tÃ¤Ã¤n laivoja pelilaudalle.
+ * Metodi myÃ¶s tarkistaa, ettÃ¤ annettu luku on positiivinen virheiden vÃ¤lttÃ¤miseksi.
+ * @param amount LisÃ¤ttÃ¤vien elÃ¤mien mÃ¤Ã¤rÃ¤
  */
     public void addLives(int amount) {
         if (amount > 0) {
@@ -44,8 +45,8 @@ public class Player {
         return this.name;
     }
  /**
- * Metodin avulla saadaan tieto siitä, ovatko pelaajan elämät loppuneet eli toisin sanoen onko hän hävinnyt pelin.
- * @return Palauttaa true, jos pelaaja on hävinnyt pelin ja false mikäli tämä on vielä pelissä mukana.
+ * Metodin avulla saadaan tieto siitÃ¤, ovatko pelaajan elÃ¤mÃ¤t loppuneet eli toisin sanoen onko hÃ¤n hÃ¤vinnyt pelin.
+ * @return Palauttaa true, jos pelaaja on hÃ¤vinnyt pelin ja false mikÃ¤li tÃ¤mÃ¤ on vielÃ¤ pelissÃ¤ mukana.
  */
     public boolean hasLost() {
         if (this.lives > 0) {
