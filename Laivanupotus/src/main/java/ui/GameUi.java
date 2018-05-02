@@ -11,7 +11,7 @@ import laivanupotus.Player;
 import laivanupotus.Statistics;
 
 /**
- * Luokka toimii laivanupotuksen käyttöliittymänä.
+ * Luokka toimii laivanupotuksen käyttöliittymänä. Pelitapahtuma tapahtuu konstruktorissa.
  *
  * @author Aleksi
  */
@@ -83,7 +83,9 @@ public class GameUi {
             }
 
             if (this.opponentboard.shoot(row, column) == true) {
-                System.out.println("You hit a ship");
+                System.out.println("You hit your opponent's ship!");
+            } else {
+                System.out.println("You missed!");
             }
 
             if (this.opponent.hasLost() == false) {

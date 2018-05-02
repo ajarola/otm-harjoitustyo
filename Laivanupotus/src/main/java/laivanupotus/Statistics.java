@@ -47,27 +47,27 @@ public class Statistics {
     }
 
     
-    public String getOutcome(){
+    public String getOutcome() {
         return this.outcome;
     }
     
     
-    public void setOutcome(String outcome){
+    public void setOutcome(String outcome) {
         this.outcome = outcome;
     }
     
     
-    public String getPlayerName(){
+    public String getPlayerName() {
         return this.playerName;
     }
     
-    public int getTurnsTaken(){
+    public int getTurnsTaken() {
         return this.turnsTaken;
     }
 /**
 * Metodin avulla pidetään kirjaa pelissä käytetyistä vuoroista.
 */
-    public void newTurn(){
+    public void newTurn() {
         this.turnsTaken++;
     }
     

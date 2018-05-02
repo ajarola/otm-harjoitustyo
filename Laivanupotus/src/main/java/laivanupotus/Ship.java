@@ -62,10 +62,12 @@ public class Ship {
 /**
 * Metodin avulla vaihdetaan laivan uppoamisesta kertovalle attribuutille arvo true, mikäli laiva on uponnut.
 * Huödynnetään osana hit() metodia.
+* Tällä hetkellä myös tulostaa tiedon laivan uppoamisesta sen upotessa, mutta tämä toiminnallisuus saattaa siirtyä käyttöliittymälle.
 */
     public void sink() {
         if (this.lives == 0) {
             this.sunk = true;
+        System.out.println(this.name + " has sunk!");
         }
     }
 

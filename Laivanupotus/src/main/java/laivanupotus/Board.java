@@ -3,7 +3,7 @@ package laivanupotus;
 import java.util.*;
 
 /**
- * Luokka toimii pelilautana ja sill� on lista laudalle kuuluvista laivoista, taulukko niiden sijainneista sekä tieto pelaajasta,
+ * Luokka toimii pelilautana ja sillä on lista laudalle kuuluvista laivoista, taulukko niiden sijainneista sekä tieto pelaajasta,
  * jolle se kuuluu.
  * @author Aleksi
  */
@@ -48,11 +48,11 @@ public class Board {
 
  /**
  * Metodi tulostaa pelilaudan merkkiesityksenä komentoriville. Riippuen annetusta parametrista näyttää tai on näyttämättä laivojen sijainteja.
- * @param which Määrittää tulostetaanko pelaajan vai vastapuolen pelilauta.
+ * @param whichBoard Määrittää tulostetaanko pelaajan vai vastapuolen pelilauta.
  */  
     public void showBoard(int whichBoard) {
         
-        if (whichBoard != 0 && whichBoard != 1){
+        if (whichBoard != 0 && whichBoard != 1) {
             return;
         }        
         int help = 0;
@@ -233,21 +233,21 @@ public class Board {
  * @param   endColumn lopetussarake
  * @return palauttaa laivan sijainnin sisältävän taulukon
  */ 
-    public int[][] buildShipPosition(int startRow, int endRow, int startColumn, int endColumn){
+    public int[][] buildShipPosition(int startRow, int endRow, int startColumn, int endColumn) {
 
         int[][] position = initializeArray(this.board.length);
 
-        if (startColumn == endColumn){
+        if (startColumn == endColumn) {
             while (startRow <= endRow) {
                 position[startRow][startColumn] = 1;
                 startRow++;
             }
-        } else if (startRow == endRow){
+        } else if (startRow == endRow) {
             while (startColumn <= endColumn) {
                 position[startRow][startColumn] = 1;
                 startColumn++;
-        }
             }
+        }
         return position;
     }
 
@@ -274,11 +274,11 @@ public class Board {
         return false;
     }
 
-    public int[][] getBoard(){
+    public int[][] getBoard() {
         return this.board;
     }
     
-    public List<Ship> getShiplist(){
+    public List<Ship> getShiplist() {
         return this.shiplist;
     }
 }

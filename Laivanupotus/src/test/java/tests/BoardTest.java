@@ -121,42 +121,87 @@ public class BoardTest {
     }
     
     @Test
-    public void ShipLocationToBoardShipTest(){
+    public void shipLocationToBoardShipTest(){
         gameboard.shipLocationToBoard(position);
         assertEquals(1, gameboard.getBoard()[0][0]);    
     }
     
     @Test
-    public void ShipLocationToBoardWaterTest(){
+    public void shipLocationToBoardWaterTest(){
         gameboard.shipLocationToBoard(position);
         assertEquals(-1, gameboard.getBoard()[5][5]);    
     }
     
     @Test
-    public void CheckPositionLegalityIncorrectTest(){
+    public void checkPositionLegalityIncorrectTest(){
         gameboard.shipLocationToBoard(position);
         assertEquals(false, gameboard.checkPositionLegality(position));    
     }
     
     @Test
-    public void BuildShipPositionRowTest(){
-        assertEquals(1, gameboard.buildShipPositionRow(5, 6, 0)[5][0]);    
+    public void buildShipPositionRowTest(){
+        assertEquals(1, gameboard.buildShipPosition(5, 6, 0, 0)[5][0]);    
     }
     
     @Test
-    public void BuildShipPositionColumnTest(){
-        assertEquals(1, gameboard.buildShipPositionColumn(6, 0, 4)[6][0]);    
+    public void buildShipPositionColumnTest(){
+        assertEquals(1, gameboard.buildShipPosition(6, 6, 0, 4)[6][0]);    
     }
     
     @Test
-    public void CheckShipsForHitsTrueTest(){
+    public void checkShipsForHitsTrueTest(){
         assertEquals(true, gameboard.checkShipsForHits(0, 0));    
     }
     
     @Test
-    public void CheckShipsForHitsFalseTest(){
+    public void checkShipsForHitsFalseTest(){
         assertEquals(false, gameboard.checkShipsForHits(7, 7));    
     }
+    
+    @Test
+    public void addShipToBoardFailTest(){
+        assertEquals(false, gameboard.addShipToBoard(999, 6, 0, 0, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFail1Test(){
+        assertEquals(false, gameboard.addShipToBoard(6, 999, 0, 0, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFail2Test(){
+        assertEquals(false, gameboard.addShipToBoard(-1, 6, 0, 0, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFail3Test(){
+        assertEquals(false, gameboard.addShipToBoard(6, -1, 0, 0, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFail4Test(){
+        assertEquals(false, gameboard.addShipToBoard(6, 6, -1, 0, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFail5Test(){
+        assertEquals(false, gameboard.addShipToBoard(6, 5, 0, -1, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFail6Test(){
+        assertEquals(false, gameboard.addShipToBoard(0, 0, 999, 0, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFail7Test(){
+        assertEquals(false, gameboard.addShipToBoard(0, 0, 0, 999, "Seppo"));    
+    }
+    
+    @Test
+    public void addShipToBoardFailLaterTest(){
+        assertEquals(false, gameboard.addShipToBoard(5, 6, 7, 8, "Seppo"));    
+    } 
 }
 
 
