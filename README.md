@@ -8,7 +8,7 @@
 
 [Arkkitehtuuri](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
 
-[Release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko5)
+[Uusin release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko6)
 
 [Käyttöohje](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
