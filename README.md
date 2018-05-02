@@ -52,5 +52,3 @@ JavaDoc generoidaan komennolla
 mvn javadoc:javadoc
 ```
 Testikattavuusraportti, Javadoc sekä Checkstyle-raportti löytyvät generoimisen jälkeen _target_ hakemiston alta.
-
-```
