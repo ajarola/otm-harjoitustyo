@@ -65,7 +65,7 @@ public class Statistics {
         return this.turnsTaken;
     }
 /**
-* Metodin pidetään kirjaa pelissä käytetyistä vuoroista.
+* Metodin avulla pidetään kirjaa pelissä käytetyistä vuoroista.
 */
     public void newTurn(){
         this.turnsTaken++;
