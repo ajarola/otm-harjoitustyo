@@ -44,3 +44,13 @@ Checkstyle tarkastukset suoritetaan komennolla
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+### JavaDoc
+
+JavaDoc generoidaan komennolla
+
+```
+mvn javadoc:javadoc
+```
+Testikattavuusraportti, Javadoc sekä Checkstyle-raportti löytyvät generoimisen jälkeen _target_ hakemiston alta.
+
+```
