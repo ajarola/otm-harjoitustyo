@@ -54,64 +54,64 @@ public class GameUi {
         } else {
             manualShipPlacement();
         }
-            this.opponentboard.randomBoard();
+        this.opponentboard.randomBoard();
 
-            System.out.println("Follow given instructions to play. If you want to end the game early, type negative value for row.");
-            System.out.println("The game begins!");
+        System.out.println("Follow given instructions to play. If you want to end the game early, type negative value for row.");
+        System.out.println("The game begins!");
 
-            while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
+        while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
 
-                this.statistics.newTurn();
+            this.statistics.newTurn();
 
-                showBoards();
+            showBoards();
 
-                int row = 999;
-                int column = 999;
+            int row = 999;
+            int column = 999;
 
-                try {
-                    System.out.println("type row to shoot");
-                    row = Integer.parseInt(this.scanner.nextLine());
-                    System.out.println("type column to shoot");
-                    column = Integer.parseInt(this.scanner.nextLine());
-                } catch (NumberFormatException e) {
-
-                }
+            try {
+                System.out.println("type row to shoot");
+                row = Integer.parseInt(this.scanner.nextLine());
 
                 if (row < 0) {
                     break;
                 }
 
-                if (this.opponentboard.shoot(row, column) == true) {
-                    System.out.println("You hit a ship");
-                }
+                System.out.println("type column to shoot");
+                column = Integer.parseInt(this.scanner.nextLine());
+            } catch (NumberFormatException e) {
 
-                if (this.opponent.hasLost() == false) {
+            }
 
-                    boolean hasShot = false;
+            if (this.opponentboard.shoot(row, column) == true) {
+                System.out.println("You hit a ship");
+            }
 
-                    while (hasShot == false) {
-                        int randomrow = this.random.nextInt(10);
-                        int randomcolumn = this.random.nextInt(10);
-                        if (playerboard.getBoard()[randomrow][randomcolumn] != 2 && playerboard.getBoard()[randomrow][randomcolumn] != 0) {
-                            hasShot = true;
-                            this.playerboard.shoot(randomrow, randomcolumn);
+            if (this.opponent.hasLost() == false) {
 
-                        }
+                boolean hasShot = false;
+
+                while (hasShot == false) {
+                    int randomrow = this.random.nextInt(10);
+                    int randomcolumn = this.random.nextInt(10);
+                    if (playerboard.getBoard()[randomrow][randomcolumn] != 2 && playerboard.getBoard()[randomrow][randomcolumn] != 0) {
+                        hasShot = true;
+                        this.playerboard.shoot(randomrow, randomcolumn);
+
                     }
                 }
             }
-            announceWinner();
-
         }
-    
+        announceWinner();
+
+    }
 
     /**
      * Metodin avulla tulostetaan senhetkinen pelitilanne komentoriville.
      */
     public void showBoards() {
-        this.opponentboard.showOpponentBoard();
+        this.opponentboard.showBoard(0);
         System.out.print("---------------------------------------------------");
-        this.playerboard.showOwnBoard();
+        this.playerboard.showBoard(1);
     }
 
     /**
@@ -164,8 +164,10 @@ public class GameUi {
         System.out.println("The upper board belongs to your opponent and lower one to you.");
         System.out.println("Opponent automatically takes a shot once your turn has ended unless you have won already.");
     }
+
     /**
-     * Käytetään pelaajan laivojen sijoittamiseen manuaalisesti. Sijoittaa laivat ja ohjeistaa pelaajaa samalla.
+     * Käytetään pelaajan laivojen sijoittamiseen manuaalisesti. Sijoittaa
+     * laivat ja ohjeistaa pelaajaa samalla.
      */
     public void manualShipPlacement() {
 
@@ -201,19 +203,14 @@ public class GameUi {
             } else {
                 System.out.println("Invalid input (not integer) or position for the ship.");
             }
-            this.playerboard.showOwnBoard();
+            this.playerboard.showBoard(1);
         }
         System.out.println("Your board is complete.");
     }
 
-    
-    /**
-     * Käynnistää pelin.
-     */
     public static void main(String[] args) throws Exception {
 
         GameUi game = new GameUi();
 
-    } 
+    }
 }
-

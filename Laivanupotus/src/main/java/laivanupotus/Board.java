@@ -29,7 +29,6 @@ public class Board {
  * @param   row Käyttäjän antama tai satunnaisesti tuotettu syöte, joka määrittää rivin jota ammutaan.
  * @param   column Käyttäjän antama tai satunnaisesti tuotettu syöte, joka määrittää sarakkeen jota ammutaan.
  * 
- * @see
  *
  * @return true tai false, riippuen siitä tapahtuiko osumaa.
  */   
@@ -48,10 +47,14 @@ public class Board {
     }
 
  /**
- * Metodi tulostaa pelilaudan merkkiesityksenä komentoriville, näyttäen myös laivojen sijainnit. Käytetään oman pelilaudan näyttämiseen
- * @see
+ * Metodi tulostaa pelilaudan merkkiesityksenä komentoriville. Riippuen annetusta parametrista näyttää tai on näyttämättä laivojen sijainteja.
+ * @param which Määrittää tulostetaanko pelaajan vai vastapuolen pelilauta.
  */  
-    public void showOwnBoard() {
+    public void showBoard(int whichBoard) {
+        
+        if (whichBoard != 0 && whichBoard != 1){
+            return;
+        }        
         int help = 0;
         System.out.println("\n");
         System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");
@@ -62,7 +65,9 @@ public class Board {
             for (int j = 0; j < this.board.length; j++) {
                 if (this.board[i][j] == -1) {
                     System.out.print("~" + "    ");
-                } else if (this.board[i][j] == 1) {
+                } else if (this.board[i][j] == 1 && whichBoard == 0) {
+                    System.out.print("~" + "    ");
+                } else if (this.board[i][j] == 1 && whichBoard == 1) {
                     System.out.print("S" + "    ");
                 } else if (this.board[i][j] == 2) {
                     System.out.print("X" + "    ");
@@ -74,33 +79,6 @@ public class Board {
         }
 
     }
- /**
- * Metodi tulostaa pelilaudan merkkiesityksen� komentoriville, piilottaen laivojen sijainnit. Käytetään vastustajan pelilaudan näyttämiseen
- * @see
- */  
-    public void showOpponentBoard() {
-
-        int help = 0;
-        System.out.println("\n");
-        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");
-
-        for (int i = 0; i < this.board.length; i++) {
-            System.out.print(help + "    ");
-            help++;
-            for (int j = 0; j < this.board.length; j++) {
-                if (this.board[i][j] == -1 || this.board[i][j] == 1) {
-                    System.out.print("~" + "    ");
-                } else if (this.board[i][j] == 2) {
-                    System.out.print("X" + "    ");
-                } else {
-                    System.out.print("O" + "    ");
-                }
-            }
-            System.out.println("\n");
-        }
-
-    }
-
 /**
  * Metodi luo pelilaudalle satunnaisesti sijoitellut 5 laivaa. Laivojen pituudet ja nimet on ennalta määrätty, mutta niiden sijainti arvotaan
  * arpomalla ensin laivan aloitusrivi ja -sarake sekä suunta johon se rakennetaan. Laiva rakennetaan laudalle addShipToBoard-metodin avulla.
@@ -151,7 +129,6 @@ public class Board {
  * @param   row2 Laivan lopetusrivi.
  * @param   column2 Laivan lopetussarake.
  * @param   name Laivan nimi.
- * @see
  *
  * @return true tai false, riippuen siitä onnistuuko laivan luominen.
  */  
@@ -177,12 +154,12 @@ public class Board {
 
         if (column1 == column2) {
 
-            position = buildShipPositionRow(row1, row2, column1);
+            position = buildShipPosition(row1, row2, column1, column2);
             lenght = row2 - row1 + 1;
 
         } else if (row1 == row2) {
 
-            position = buildShipPositionColumn(row1, column1, column2);
+            position = buildShipPosition(row1, row2, column1, column2);
             lenght = column2 - column1 + 1;
 
         } else {
@@ -203,7 +180,6 @@ public class Board {
 /**
  * Metodi luo ja alustaa tietynkokoisen taulukon, jota käytetään laivojen sijainnin ja pelilaudan ilmentymänä.
  * @param   size Taulukon koko.
- * @see
  *
  * @return palauttaa luodun taulukon.
  */ 
@@ -221,7 +197,6 @@ public class Board {
 /**
  * Metodi tallentaa laivan sijainnin pelilaudalle. Tämä tapahtuu muuttamalla taulukon lukuarvoja.
  * @param   position Taulukko, johon on merkitty pelilaudalle tuleva laivan sijainti.
- * @see
  */ 
     public void shipLocationToBoard(int[][] position) {
 
@@ -237,7 +212,6 @@ public class Board {
 /**
  * Metodi tallentaa tarkistaa, onko annetussa sijainnissa jo laivaa.
  * @param   position Taulukko, johon on merkitty pelilaudalle tuleva laivan sijainti.
- * @see
  * @return true, jos laivan voi sijoittaa annettuun sijaintiin ja false jos ei.
  */ 
     public boolean checkPositionLegality(int[][] position) {
@@ -252,47 +226,36 @@ public class Board {
         return true;
     }
 /**
- * Metodi tekee laivalle sijainnin rakennettaessa laivaa vaakasuoraan ja palauttaa sen taulukkona.
+ * Metodi tekee laivalle sijainnin annetun syötteen perusteella. Rakentaa sen joko rivien tai sarakkeiden suuntaisesti.
  * @param   startRow aloitusrivi
  * @param   endRow lopetusrivi
- * @param   column sarake, jolla laiva sijaitsee
- * @see
- * @return palauttaa laivan sijainnin sisältävän taulukon
- */ 
-    public int[][] buildShipPositionRow(int startRow, int endRow, int column) {
-
-        int[][] position = initializeArray(this.board.length);
-
-        while (startRow <= endRow) {
-            position[startRow][column] = 1;
-            startRow++;
-        }
-        return position;
-    }
-/**
- * Metodi tekee laivalle sijainnin rakennettaessa laivaa pystyssuoraan ja palauttaa sen taulukkona.
- * @param   row rivi, jolla laiva sijaitsee
- * @param   startColumn aloitussarake
+ * @param startColumn aloitussarake
  * @param   endColumn lopetussarake
- * @see
  * @return palauttaa laivan sijainnin sisältävän taulukon
  */ 
-    public int[][] buildShipPositionColumn(int row, int startColumn, int endColumn) {
+    public int[][] buildShipPosition(int startRow, int endRow, int startColumn, int endColumn){
 
         int[][] position = initializeArray(this.board.length);
 
-        while (startColumn <= endColumn) {
-            position[row][startColumn] = 1;
-            startColumn++;
+        if (startColumn == endColumn){
+            while (startRow <= endRow) {
+                position[startRow][startColumn] = 1;
+                startRow++;
+            }
+        } else if (startRow == endRow){
+            while (startColumn <= endColumn) {
+                position[startRow][startColumn] = 1;
+                startColumn++;
         }
+            }
         return position;
     }
+
 /**
  * Metodi tarkastaa käymällä pelilaudan laivat sisältävän listan läpi, että onko niistä joku
  * syötteenä annetuissa koordinaateissa. palauttaa true jos näin on.
  * @param   row rivi
  * @param   column sarake
- * @see
  * @return true jos sijainnissa on laiva, false jos ei.
  */ 
     public boolean checkShipsForHits(int row, int column) {
