@@ -1,34 +1,16 @@
 # Vaatimusmäärittely
 ## Sovelluksen tarkoitus
-Sovelluksen tarkoitus on toteuttaa tavallisesti paperilla pelattava laivanupotuspeli tietokoneella pelattavassa muodossa.
-Sovellus tarjoaa siis käyttäjälleen ajanvietettä. Peliä on toisen ihmisen sijaan tarkoitus pelata yksinkertaista tekoälyä vastaan.
+Sovellus on totutusti paperilla tai pelilaudalla pelattu laivanupotuspeli komentorivillä pelattavassa muodossa. Sen on tarkoitus tarjota käyttäjälleen ajanvietettä, sekä mahdollisuus tarkastaa aiempia pelituloksia.
 
-## Perusversion toiminnallisuus
-Perusversion on tarkoitus tarjota pelaajalle jonkin tasoinen vastustaja, jolla on satunnaisesti sijoitellut laivat pelikentällä.
-Pelaaja voi itse päättää omien laivojensa sijainnin, mutta tällä ei välttämättä ole mitään merkitystä lopputuloksen kannalta. Peliä
-pelataan 5x5 ruudukolla, jossa on kolme kolmen ruudun pituista laivaa. Perusversiossa peli tapahtuu komentorivin avulla niin, että ensin
-määritetään laivojen sijainti ja sen jälkeen aloitetaan peli. Peli etenee normaalien laivanupotuksen sääntöjen mukaisesti.
+## Toiminnallisuus
+Sovellus tarjoaa pelaajalle vastustajan, jolla on satunnaisesti sijoitellut laivat pelikentällä.
+Pelaaja voi joko sijoittaa laivansa pelilaudalle automaattisesti satunnaisiin sijainteihin, tai itse päättää omien laivojensa sijainnin ja pituuden. Jälkimmäinen vaihtoehto tarjoaa mahdollisuuden hieman helpottaa tai vaikeuttaa peliä.
+Peliä pelataan kahdella 10x10 kokoisella laudalla, jossa on perusolettamana molemmilla puolilla viisi hieman eri pituista laivaa. Pelaaja tietää omien, muttei vastustajansa laivojen sijaintia. Peli etenee vuorotellen laukauksin ja loppuu, kun toisen puolen laivat on täysin upotettu. Sovellus antaa myös tietoja tapahtuneista osumista. Pelin päättyessä muutamia tietoja siitä, kuten lopputulos, tallennetaan muistiin.
 
 ### Toiminnallisuus listana
-
+- mahdollisuus sijoittaa omat laivansa automaattisesti
 - mahdollisuus määrittää omien laivojen sijainti
 - tekoäly vastustajana
-- toimii tavallisten laivanupotuksen sääntöjen mukaan
+- toimii tavanomaisten laivanupotuksen sääntöjen mukaan
 - peli tapahtuu komentorivillä
-
-## Jatkokehitysideoita
-Peliä voi jatkokehittää lukuisilla eri tavoilla. Tekoälylle voidaan lisätä eri vaikeustasoja ja laivojen määrää sekä ruudukon kokoa voidaan
-muokata pelaajan toiveiden mukaan. Myös datan kerääminen talteen pelitilanteista myöhempää tarkastelua varten voidaan mahdollistaa.
-Kun tuloksien kerääminen alkaa, voi ajankohtaiseksi tulla käyttäjien yksilöinti, jotta nähdään mikä tulos kuuluu kenellekin. Peliin voidaan
-myös lisätä graafinen käyttöliittymä, joka varmasti toimiessaan helpottaa pelin pelaamista. Myös pelaajan valittavissa olevia tavallisista
-säännöistä poikkeavia toiminnallisuuksia voidaan lisätä peliin.
-
-### Jatkokehitysmahdollisuudet listana
-
-- säädettävä vaikeustaso
-- muokattava laivojen määrä/koko
-- muokattava pelikentän koko
-- tulosten tallentaminen
-- pelaajien yksilöinti
-- graafinen käyttöliittymä
-- mahdollisuus muokata pelin sääntöjä
+- tulokset tallennetaan
