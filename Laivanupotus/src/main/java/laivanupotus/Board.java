@@ -34,11 +34,11 @@ public class Board {
  */   
     public boolean shoot(int row, int column) {
 
-        if (row >= this.board.length || column >= this.board.length) {
+        if (row-1 >= this.board.length || column-1 >= this.board.length) {
             System.out.println("Invalid input (not an integer) or shot out of bounds.");
             return false;
         }
-        if (checkShipsForHits(row, column) == true) {
+        if (checkShipsForHits(row-1, column-1) == true) {
             this.owner.hit();
             return true;
         } else {
@@ -55,13 +55,17 @@ public class Board {
         if (whichBoard != 0 && whichBoard != 1) {
             return;
         }        
-        int help = 0;
+        int help = 1;
         System.out.println("\n");
-        System.out.println("     0    1    2    3    4    5    6    7    8    9 \n");
+        System.out.println("      1    2    3    4    5    6    7    8    9   10\n");
 
         for (int i = 0; i < this.board.length; i++) {
-            System.out.print(help + "    ");
-            help++;
+            if (help < 10) {
+            System.out.print(" " + help + "    ");
+            } else {
+                System.out.print(help + "    ");
+            }
+            help++;            
             for (int j = 0; j < this.board.length; j++) {
                 if (this.board[i][j] == -1) {
                     System.out.print("~" + "    ");

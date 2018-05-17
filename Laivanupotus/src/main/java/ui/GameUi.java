@@ -18,8 +18,8 @@ import laivanupotus.Statistics;
 public class GameUi {
 
     private Scanner scanner;
-    private Board opponentboard;
-    private Board playerboard;
+    private Board opponentBoard;
+    private Board playerBoard;
     private Player player;
     private Player opponent;
     private Random random;
@@ -37,8 +37,8 @@ public class GameUi {
         this.player = new Player(scanner.nextLine());
         this.opponent = new Player("Opponent");
         this.statistics = new Statistics(this.player.getName());
-        this.opponentboard = new Board(10, this.opponent);
-        this.playerboard = new Board(10, this.player);
+        this.opponentBoard = new Board(10, this.opponent);
+        this.playerBoard = new Board(10, this.player);
 
         System.out.println("Type 1 to automatically place your ships or type 2 to place them manually:");
 
@@ -50,13 +50,13 @@ public class GameUi {
             System.out.println("Invalid user input. Your ships have been automatically placed, because you probably couldn't place them manually anyways.");
         }
         if (choice != 2) {
-            this.playerboard.randomBoard();
+            this.playerBoard.randomBoard();
         } else {
             manualShipPlacement();
         }
-        this.opponentboard.randomBoard();
+        this.opponentBoard.randomBoard();
 
-        System.out.println("Follow given instructions to play. If you want to end the game early, type negative value for row.");
+        System.out.println("Follow given instructions to play. If you want to end the game early, type zero or negative value for the row.");
         System.out.println("The game begins!");
 
         while (this.player.hasLost() == false && this.opponent.hasLost() == false) {
@@ -72,7 +72,7 @@ public class GameUi {
                 System.out.println("type row to shoot");
                 row = Integer.parseInt(this.scanner.nextLine());
 
-                if (row < 0) {
+                if (row < 1) {
                     break;
                 }
 
@@ -82,7 +82,7 @@ public class GameUi {
 
             }
 
-            if (this.opponentboard.shoot(row, column) == true) {
+            if (this.opponentBoard.shoot(row, column) == true) {
                 System.out.println("You hit your opponent's ship!");
             } else {
                 System.out.println("You missed!");
@@ -93,11 +93,11 @@ public class GameUi {
                 boolean hasShot = false;
 
                 while (hasShot == false) {
-                    int randomrow = this.random.nextInt(10);
-                    int randomcolumn = this.random.nextInt(10);
-                    if (playerboard.getBoard()[randomrow][randomcolumn] != 2 && playerboard.getBoard()[randomrow][randomcolumn] != 0) {
+                    int randomrow = this.random.nextInt(11);
+                    int randomcolumn = this.random.nextInt(11);
+                    if (playerBoard.getBoard()[randomrow][randomcolumn] != 2 && playerBoard.getBoard()[randomrow][randomcolumn] != 0) {
                         hasShot = true;
-                        this.playerboard.shoot(randomrow, randomcolumn);
+                        this.playerBoard.shoot(randomrow, randomcolumn);
 
                     }
                 }
@@ -111,9 +111,9 @@ public class GameUi {
      * Metodin avulla tulostetaan senhetkinen pelitilanne komentoriville.
      */
     public void showBoards() {
-        this.opponentboard.showBoard(0);
-        System.out.print("---------------------------------------------------");
-        this.playerboard.showBoard(1);
+        this.opponentBoard.showBoard(0);
+        System.out.print("----------------------------------------------------");
+        this.playerBoard.showBoard(1);
     }
 
     /**
@@ -150,18 +150,18 @@ public class GameUi {
      */
     public void instructions() {
 
-        System.out.println("Use matrix rows and columns starting from 0 to target your shots.");
-        System.out.println("  0 1 2 3 4 5 6 7 8 9");
-        System.out.println("0 x x x x x x x x x x");
-        System.out.println("1 x x x x x x x x x x");
-        System.out.println("2 x x x x x x x x x x");
-        System.out.println("3 x x x x x x x x x x");
-        System.out.println("4 x x x x x x x x x x");
-        System.out.println("5 x x x x x x x x x x");
-        System.out.println("6 x x x x x x x x x x");
-        System.out.println("7 x x x x x x x x x x");
-        System.out.println("8 x x x x x x x x x x");
-        System.out.println("9 x x x x x x x x x x");
+        System.out.println("Use matrix rows and columns from 1 to 10 to target your shots.");
+        System.out.println("   1 2 3 4 5 6 7 8 9 10");
+        System.out.println(" 1 x x x x x x x x x x");
+        System.out.println(" 2 x x x x x x x x x x");
+        System.out.println(" 3 x x x x x x x x x x");
+        System.out.println(" 4 x x x x x x x x x x");
+        System.out.println(" 5 x x x x x x x x x x");
+        System.out.println(" 6 x x x x x x x x x x");
+        System.out.println(" 7 x x x x x x x x x x");
+        System.out.println(" 8 x x x x x x x x x x");
+        System.out.println(" 9 x x x x x x x x x x");
+        System.out.println("10 x x x x x x x x x x");
         System.out.println("Game ends when other player's ships have been completely wiped out.");
         System.out.println("The upper board belongs to your opponent and lower one to you.");
         System.out.println("Opponent automatically takes a shot once your turn has ended unless you have won already.");
@@ -199,13 +199,13 @@ public class GameUi {
             } catch (NumberFormatException e) {
 
             }
-            if (this.playerboard.addShipToBoard(row1, column1, row2, column2, shipnames[ships]) == true) {
+            if (this.playerBoard.addShipToBoard(row1-1, column1-1, row2-1, column2-1, shipnames[ships]) == true) {
                 ships++;
                 System.out.println("Ship succesfully added to your board.");
             } else {
                 System.out.println("Invalid input (not integer) or position for the ship.");
             }
-            this.playerboard.showBoard(1);
+            this.playerBoard.showBoard(1);
         }
         System.out.println("Your board is complete.");
     }

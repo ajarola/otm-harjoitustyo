@@ -13,7 +13,6 @@ import java.io.*;
  */
 public class Statistics {
     
-    private FileReader reader;
     private PrintWriter writer;
     private int turnsTaken;
     private String playerName;
