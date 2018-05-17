@@ -12,6 +12,8 @@
 
 [Käyttöohje](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
+[Testausdokumentti](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/testaus.md)
+
 ## Komentorivitoiminnot
 
 ### Testaus
