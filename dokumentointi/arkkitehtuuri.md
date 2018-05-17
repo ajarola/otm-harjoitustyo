@@ -1,6 +1,6 @@
 # Arkkitehtuurikuvaus
 ## Pakkausrakenne
-Pakkausrakenne koostuu vain ja ainoastaan eri pakkauksissa olevasta sovelluslogiikasta sekä käyttöliittymästä.
+Pakkausrakenne on äärimmäisen yksinkertainen ja koostuu vain ja ainoastaan eri pakkauksissa olevasta sovelluslogiikasta sekä käyttöliittymästä.
 ![Paukkausrakenne](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kuvat/pakkaus.png)
 ## Luokkakaavio
 Alustava versio luokkakaaviosta. Ohjelman rakenne tulee oletettavasti päivittymään vielä huomattavasti, joten tässä kohtaa en näe
