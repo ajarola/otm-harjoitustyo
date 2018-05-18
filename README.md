@@ -10,11 +10,11 @@ Sovellus tarjoaa perinteisen laivanupotuspelin komentorivillä pelattavassa muod
 
 [Arkkitehtuuri](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
 
-[Viimeisin release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko7)
-
 [Käyttöohje](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
 [Testausdokumentti](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/testaus.md)
+
+[Viimeisin release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko7)
 
 ## Komentorivitoiminnot
 
