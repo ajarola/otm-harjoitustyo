@@ -29,20 +29,16 @@ public class Statistics {
 /**
 * Metodia käytetään pelin tulosten tallentamiseen. Tulokset tallennetaan statistics.txt nimiseen tekstitiedostoon, ja jos tällaista
 * tiedostoa ei ole jo olemassa niin luodaan sellainen.
+     * @throws java.io.IOException
 */
-    public void recordStats() {
+    public void recordStats() throws IOException {
+      
+        this.writer = new PrintWriter(new FileWriter("statistics.txt", true));
 
-        try {
-            this.writer = new PrintWriter(new FileWriter("statistics.txt", true));
+        writer.println("Player: " + this.playerName + "   outcome:" + this.outcome + "   turns taken: " + this.turnsTaken);
 
-            writer.println("Player: " + this.playerName + "   outcome:" + this.outcome + "   turns taken: " + this.turnsTaken);
-
-            writer.close();
-
-        } catch (IOException ex) {
-            System.out.println("Something went wrong with recording the match statistics.");
-        }
-
+        writer.close();
+        
     }
 
     

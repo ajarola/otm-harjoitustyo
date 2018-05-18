@@ -77,21 +77,33 @@ public class BoardTest {
     }
     
     @Test
-    public void testShootingOob(){
+    public void testShootingOob1(){
         assertEquals(false, gameboard.shoot(200,200));
         
     }
     
     @Test
+    public void testShootingOob2(){
+        assertEquals(false, gameboard.shoot(0,200));
+        
+    }
+    
+    @Test
+    public void testShootingOob3(){
+        assertEquals(false, gameboard.shoot(200,0));
+        
+    }
+    
+    @Test
     public void testShootHittingShip(){
-        assertEquals(true, gameboard.shoot(0, 0));
+        assertEquals(true, gameboard.shoot(1, 1));
         
     }
     
     @Test
     public void testShootNotCountingHitTwice(){
-        gameboard.shoot(0, 0);
-        assertEquals(false, gameboard.shoot(0,0));
+        gameboard.shoot(1, 1);
+        assertEquals(false, gameboard.shoot(1,1));
         
     }
     
@@ -149,6 +161,11 @@ public class BoardTest {
     }
     
     @Test
+    public void buildShipPositionFailTest(){
+        assertEquals(-1, gameboard.buildShipPosition(6, 7, 8, 9)[6][8]);    
+    }
+    
+    @Test
     public void checkShipsForHitsTrueTest(){
         assertEquals(true, gameboard.checkShipsForHits(0, 0));    
     }
@@ -201,8 +218,23 @@ public class BoardTest {
     @Test
     public void addShipToBoardFailLaterTest(){
         assertEquals(false, gameboard.addShipToBoard(5, 6, 7, 8, "Seppo"));    
-    } 
-}
-
-
+    }
     
+    @Test
+    public void randomBoardFailingTest(){
+        gameboard.randomBoard();
+        gameboard.randomBoard();
+        gameboard.randomBoard();
+        gameboard.randomBoard();
+        gameboard.randomBoard();
+        gameboard.randomBoard();
+        gameboard.randomBoard();
+        gameboard.randomBoard();
+        assertEquals(false, gameboard.randomBoard());  
+    }
+    
+   @Test
+    public void randomBoardSuccessTest(){
+        assertEquals(true, gameboard.randomBoard());  
+    }
+}   

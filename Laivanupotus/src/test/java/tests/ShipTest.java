@@ -25,6 +25,7 @@ public class ShipTest {
     Player player;
     Board gameboard;
     Ship ship;
+    
     public ShipTest() {
     
     
@@ -53,7 +54,7 @@ public class ShipTest {
     public void tearDown() {
     }
 
-void testPlayerHasLost(){
+    void testPlayerHasLost(){
         assertEquals(false, this.player.hasLost());
         
     }
@@ -102,7 +103,17 @@ void testPlayerHasLost(){
         
     }
     
-    
+    @Test
+    public void testShipNotGettingHitAnymoreWhenSunk(){
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        this.gameboard.getShiplist().get(0).hit();
+        assertEquals(0, this.gameboard.getShiplist().get(0).getLives());
+        
+    }
     
     
 }

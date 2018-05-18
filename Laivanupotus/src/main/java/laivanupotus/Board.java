@@ -34,69 +34,34 @@ public class Board {
  */   
     public boolean shoot(int row, int column) {
 
-        if (row-1 >= this.board.length || column-1 >= this.board.length) {
+        if (row - 1 >= this.board.length || column - 1 >= this.board.length) {
             System.out.println("Invalid input (not an integer) or shot out of bounds.");
             return false;
         }
-        if (checkShipsForHits(row-1, column-1) == true) {
+        if (checkShipsForHits(row - 1, column - 1) == true) {
             this.owner.hit();
             return true;
         } else {
             return false;
         }
     }
-
- /**
- * Metodi tulostaa pelilaudan merkkiesityksenä komentoriville. Riippuen annetusta parametrista näyttää tai on näyttämättä laivojen sijainteja.
- * @param whichBoard Määrittää tulostetaanko pelaajan vai vastapuolen pelilauta.
- */  
-    public void showBoard(int whichBoard) {
-        
-        if (whichBoard != 0 && whichBoard != 1) {
-            return;
-        }        
-        int help = 1;
-        System.out.println("\n");
-        System.out.println("      1    2    3    4    5    6    7    8    9   10\n");
-
-        for (int i = 0; i < this.board.length; i++) {
-            if (help < 10) {
-            System.out.print(" " + help + "    ");
-            } else {
-                System.out.print(help + "    ");
-            }
-            help++;            
-            for (int j = 0; j < this.board.length; j++) {
-                if (this.board[i][j] == -1) {
-                    System.out.print("~" + "    ");
-                } else if (this.board[i][j] == 1 && whichBoard == 0) {
-                    System.out.print("~" + "    ");
-                } else if (this.board[i][j] == 1 && whichBoard == 1) {
-                    System.out.print("S" + "    ");
-                } else if (this.board[i][j] == 2) {
-                    System.out.print("X" + "    ");
-                } else {
-                    System.out.print("O" + "    ");
-                }
-            }
-            System.out.println("\n");
-        }
-
-    }
+    
 /**
  * Metodi luo pelilaudalle satunnaisesti sijoitellut 5 laivaa. Laivojen pituudet ja nimet on ennalta määrätty, mutta niiden sijainti arvotaan
  * arpomalla ensin laivan aloitusrivi ja -sarake sekä suunta johon se rakennetaan. Laiva rakennetaan laudalle addShipToBoard-metodin avulla.
+ * @return True jos onnistuu luomaan laivat, false mikäli ei löydä sallittuja sijainteja huomattavasta yritysmäärästä huolimatta.
  */      
-    public void randomBoard() {
+    public boolean randomBoard() {
 
         Random shiplocator = new Random();
 
         int[] shiplengths = {5, 4, 3, 3, 2};
         String[] shipnames = {"Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"};
         int k = 0;
-
+        int loops = 0;
         while (k < shiplengths.length) {
 
+            loops++;
             int bowrow = shiplocator.nextInt(10);
             int bowcolumn = shiplocator.nextInt(10);
             int direction = shiplocator.nextInt(4);
@@ -118,9 +83,13 @@ public class Board {
                     k++;
                 }
             }
-
+            
+            if (loops == 10000) {
+                return false;
+            }
+            
         }
-
+        return true;
     }
 
     /**

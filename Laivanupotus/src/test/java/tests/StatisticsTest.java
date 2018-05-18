@@ -5,25 +5,29 @@
  */
 package tests;
 
-import java.io.PrintWriter;
-import laivanupotus.Board;
-import laivanupotus.Player;
-import laivanupotus.Ship;
-import laivanupotus.Statistics;
-import org.junit.After;
-import org.junit.AfterClass;
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 /**
  *
  * @author ajarola
  */
-public class StatisticsTest {
+import java.io.IOException;
+import laivanupotus.Statistics;
+import laivanupotus.Player;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
+
+/**
+ *
+ * @author Aleksi
+ */
+public class StatisticsTest {
+    Player player;
     Statistics statistics;
+    
     public StatisticsTest() {
     
     
@@ -40,14 +44,42 @@ public class StatisticsTest {
     
     @Before
     public void setUp() {
-    
+    this.player = new Player("Seppo");
+    this.statistics = new Statistics(this.player.getName());
+
     }
-            
-   
-    
+
     @After
     public void tearDown() {
     }
 
 
+    @Test
+    public void testGetOutcome(){
+        assertEquals("Undecided", this.statistics.getOutcome());
+    }
+    
+    @Test
+    public void testSetOutcome(){
+        this.statistics.setOutcome("Victory");
+        assertEquals("Victory", this.statistics.getOutcome());
+    }
+
+    @Test
+    public void testGetPlayerName() {
+        assertEquals("Seppo", this.statistics.getPlayerName());
+    }
+
+    @Test
+    public void testNewTurnAndGetTurns(){
+        this.statistics.newTurn();
+        assertEquals(1, this.statistics.getTurnsTaken());
+    }
+    
+    @Test
+    public void testRecordStats() throws IOException{
+        this.statistics.recordStats();
+        assertEquals(0, this.statistics.getTurnsTaken());
+    }
+    
 }

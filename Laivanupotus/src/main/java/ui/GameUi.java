@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.io.IOException;
 import java.util.*;
 import laivanupotus.Board;
 import laivanupotus.Player;
@@ -25,7 +26,7 @@ public class GameUi {
     private Random random;
     private Statistics statistics;
 
-    public GameUi() {
+    public GameUi() throws IOException {
 
         this.scanner = new Scanner(System.in);
         this.random = new Random();
@@ -93,11 +94,11 @@ public class GameUi {
                 boolean hasShot = false;
 
                 while (hasShot == false) {
-                    int randomrow = this.random.nextInt(11);
-                    int randomcolumn = this.random.nextInt(11);
+                    int randomrow = this.random.nextInt(10);
+                    int randomcolumn = this.random.nextInt(10);
                     if (playerBoard.getBoard()[randomrow][randomcolumn] != 2 && playerBoard.getBoard()[randomrow][randomcolumn] != 0) {
                         hasShot = true;
-                        this.playerBoard.shoot(randomrow, randomcolumn);
+                        this.playerBoard.shoot(randomrow + 1, randomcolumn + 1);
 
                     }
                 }
@@ -111,15 +112,16 @@ public class GameUi {
      * Metodin avulla tulostetaan senhetkinen pelitilanne komentoriville.
      */
     public void showBoards() {
-        this.opponentBoard.showBoard(0);
+        showBoard(this.opponentBoard, 0);
         System.out.print("----------------------------------------------------");
-        this.playerBoard.showBoard(1);
+        showBoard(this.playerBoard, 1);
     }
 
     /**
      * Metodin avulla tulostetaan pelin tulos komentoriville.
+     * @throws java.io.IOException
      */
-    public void announceWinner() {
+    public void announceWinner() throws IOException {
 
         if (this.opponent.hasLost() == true) {
             System.out.println(this.player.getName() + " has won the match!");
@@ -134,15 +136,17 @@ public class GameUi {
     /**
      * Metodin avulla suoritetaan pelin tulosten tallentaminen hyödyntäen
      * Statistics-luokkkaa.
+     * @throws java.io.IOException
      */
-    public void record() {
+    public void record() throws IOException {
 
         if (this.opponent.hasLost() == true) {
             this.statistics.setOutcome("win");
         } else if (this.player.hasLost() == true) {
             this.statistics.setOutcome("lose");
         }
-        this.statistics.recordStats();
+    this.statistics.recordStats();
+
     }
 
     /**
@@ -205,10 +209,50 @@ public class GameUi {
             } else {
                 System.out.println("Invalid input (not integer) or position for the ship.");
             }
-            this.playerBoard.showBoard(1);
+            showBoard(this.playerBoard, 1);
         }
         System.out.println("Your board is complete.");
     }
+   
+    /**
+    * Metodi tulostaa pelilaudan merkkiesityksenä komentoriville. Riippuen annetusta parametrista näyttää tai on näyttämättä laivojen sijainteja.
+    * @param board Tulostettava pelilauta
+    * @param whichBoard Määrittää tulostetaanko lauta omana vai vastustajan lautana.
+    */  
+    public void showBoard(Board board, int whichBoard) {
+      
+        if (whichBoard != 0 && whichBoard != 1) {
+            return;
+        }        
+        int help = 1;
+        System.out.println("\n");
+        System.out.println("      1    2    3    4    5    6    7    8    9   10\n");
+
+        for (int i = 0; i < board.getBoard().length; i++) {
+            if (help < 10) {
+            System.out.print(" " + help + "    ");
+            } else {
+                System.out.print(help + "    ");
+            }
+            help++;            
+            for (int j = 0; j < board.getBoard().length; j++) {
+                if (board.getBoard()[i][j] == -1) {
+                    System.out.print("~" + "    ");
+                } else if (board.getBoard()[i][j] == 1 && whichBoard == 0) {
+                    System.out.print("~" + "    ");
+                } else if (board.getBoard()[i][j] == 1 && whichBoard == 1) {
+                    System.out.print("S" + "    ");
+                } else if (board.getBoard()[i][j] == 2) {
+                    System.out.print("X" + "    ");
+                } else {
+                    System.out.print("O" + "    ");
+                }
+            }
+            System.out.println("\n");
+        }
+
+    }
+ 
 
     public static void main(String[] args) throws Exception {
 

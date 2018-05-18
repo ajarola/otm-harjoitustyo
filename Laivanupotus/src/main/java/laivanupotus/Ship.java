@@ -67,7 +67,7 @@ public class Ship {
     public void sink() {
         if (this.lives == 0) {
             this.sunk = true;
-        System.out.println(this.name + " has sunk!");
+            System.out.println(this.name + " has sunk!");
         }
     }
 
