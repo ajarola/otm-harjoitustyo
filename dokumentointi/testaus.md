@@ -7,4 +7,4 @@ toiminnan oikeellisuus mahdollisissa erilaisissa tilanteissa. Käyttöliittymä 
 ## Järjestelmätestaus
 Järjestelmätestaus on suoritettu manuaalisesti hakemalla sovelluksen viimeisin versio ja käyttämällä sitä käyttöohjeen mukaisella tavalla.
 Pelin on tarkastettu toimivan sääntöjen mukaan, eikä se kaadu käyttäjän antaessa vääränlaisen syötteen. Myös tallennustoiminnallisuuden on
-tarkastettu toimivan.
+tarkastettu toimivan. Sovellukseen ei jäänyt havaittuja virheitä.
