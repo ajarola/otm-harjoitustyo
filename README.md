@@ -1,5 +1,7 @@
 # **_Laivanupotus_**
 
+Sovellus tarjoaa perinteisen laivanupotuspelin komentorivillä pelattavassa muodossa, sekä tallentaa muistiin tietoja pelatuista peleistä.
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
@@ -8,7 +10,7 @@
 
 [Arkkitehtuuri](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
 
-[Uusin release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko7)
+[Viimeisin release](https://github.com/ajarola/otm-harjoitustyo/releases/tag/Viikko7)
 
 [Käyttöohje](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
 
