@@ -5,7 +5,7 @@ Sovellus on totutusti paperilla tai pelilaudalla pelattu laivanupotuspeli koment
 ## Toiminnallisuus
 Sovellus tarjoaa pelaajalle vastustajan, jolla on satunnaisesti sijoitellut laivat pelikentällä.
 Pelaaja voi joko sijoittaa laivansa pelilaudalle automaattisesti satunnaisiin sijainteihin, tai itse päättää omien laivojensa sijainnin ja pituuden. Jälkimmäinen vaihtoehto tarjoaa mahdollisuuden hieman helpottaa tai vaikeuttaa peliä.
-Peliä pelataan kahdella 10x10 kokoisella laudalla, jossa on perusolettamana molemmilla puolilla viisi hieman eri pituista laivaa. Pelaaja tietää omien, muttei vastustajansa laivojen sijaintia. Peli etenee vuorotellen laukauksin ja loppuu, kun toisen puolen laivat on täysin upotettu. Sovellus antaa myös tietoja tapahtuneista osumista. Pelin päättyessä muutamia tietoja siitä, kuten lopputulos, tallennetaan muistiin tekstitiedostoon.
+Peliä pelataan kahdella 10x10 kokoisella laudalla, jossa on perusolettamana molemmilla puolilla viisi hieman eri pituista laivaa. Pelaaja tietää omien, muttei vastustajansa laivojen sijaintia. Peli etenee vuorotellen laukauksin ja loppuu, kun toisen puolen laivat on täysin upotettu. Sovellus antaa myös tietoja tapahtuneista osumista. Pelin päättyessä muutamia tietoja, kuten lopputulos, tallennetaan muistiin tekstitiedostoon.
 
 ### Toiminnallisuus listana
 - mahdollisuus sijoittaa omat laivat automaattisesti
