@@ -3,7 +3,6 @@
 Sovelluslogiikan testaus on suoritettu tekemällä luokkia Board, Ship, Player ja Statistics testaavia automaattisia testejä, joilla varmistetaan jokaisen metodin 
 toiminnan oikeellisuus mahdollisissa erilaisissa tilanteissa. Käyttöliittymä on jätetty näiden testien ulkopuolelle ja testattu manuaalisesti.
 ### Testikattavuus
-Testikattavuus sovelluslogiikan osalta on saatu 100% asti.
 ![testaus](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kuvat/testaus.png)
 ## Järjestelmätestaus
 Järjestelmätestaus on suoritettu manuaalisesti hakemalla sovelluksen viimeisin versio ja käyttämällä sitä käyttöohjeen mukaisella tavalla.
