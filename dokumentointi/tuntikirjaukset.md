@@ -16,3 +16,5 @@
 | 29.4. | 1    | pientä parantelua repositorioon Githubin päässä |
 |  2.5. | 4    | Parannuksia projektiin, Javadocin tekoa, testien lisäämistä, checkstyle-virheiden korjaamista ja uusi release |
 |  2.5. | 1    | Parannuksia repositorioon dokumentoinnin osalta |
+| 17.5. | 4    | Dokumentointia ja pieniä parannuksia pelattavuuteen |
+| 18.5. | 3    | Työn viimeistelyä mm. testikattavuuden osalta |
