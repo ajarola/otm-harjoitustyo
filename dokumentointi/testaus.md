@@ -2,7 +2,7 @@
 ## Automatisoidut testit
 Sovelluslogiikan testaus on suoritettu tekemällä luokkia Board, Ship ja Player testaavia testejä, joilla varmistetaan jokaisen metodin 
 toiminnan oikeellisuus kaikissa mahdollisissa tilanteissa. Käyttöliittymä on jätetty näiden testien ulkopuolelle.
-### Testauskattavuus
+### Testikattavuus
 ![testaus](https://github.com/ajarola/otm-harjoitustyo/blob/master/dokumentointi/kuvat/testaus.png)
 ## Järjestelmätestaus
 Järjestelmätestaus on suoritettu manuaalisesti hakemalla sovelluksen viimeisin versio ja käyttämällä sitä käyttöohjeen mukaisella tavalla.
